@@ -3,42 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admin Log in</title>
+<title>Forms</title>
 
 <?= link_tag('assets/css/bootstrap.min.css'); ?>
 <?= link_tag('assets/css/datepicker3.css'); ?>
 <?= link_tag('assets/css/styles.css'); ?>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
 </head>
 
 <body>
+<div class="container">
+	<?php if($error = $this->session->flashdata('login_failed')): ?>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="alert alert-dismissible alert-danger">
+				  <button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <strong><?= $error ?></strong>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
 
 	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+		<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-8">
 			<div class="login-panel panel panel-default">
-				<div class="panel-heading">Admin Log in</div>
+				<div class="panel-heading">Log in</div>
 				<div class="panel-body">
-					<form role="form">
+					<?php echo form_open('adminlogin/admin_login_process'); ?>
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+								<div class="row">
+									<div class="col-lg-8">
+										<?php echo form_input(['name'=>'email','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Email','value'=>set_value('email')]); ?>
+									</div>
+									<div class="col-lg-4">
+										<?php echo form_error('email'); ?>
+									</div>
+								</div>
 							</div>
+
 							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
+								<div class="row">
+									<div class="col-lg-8">
+									<?php echo form_password(['name'=>'password','id'=>'inputEmail','class'=>'form-control','placeholder'=>'password']); ?>
+									</div>
+									<div class="col-lg-4">
+										<?php echo form_error('password'); ?>
+									</div>
+								</div>
 							</div>
+
 							<div class="row">
-								<div class="col-lg-2">
-									<a href="index.html" class="btn btn-primary">Login</a>
+								<div class="col-lg-3">
+									<?php echo form_submit(['name'=>'submit','value'=>'Login','class'=>'btn btn-primary']); ?>
 								</div>
-								<div class="col-lg-2">
-									<a href="index.html" class="btn btn-success btn-md">Reset</a>
+								<div class="col-lg-3">
+									<?php echo form_reset(['name'=>'reset','value'=>'Reset','class'=>'btn btn-success btn-md']); ?>
+
 								</div>
 							</div>
+
 						</fieldset>
-					</form>
+					<?php echo form_close(); ?>
 				</div>
 			</div>
 		</div><!-- /.col-->
 	</div><!-- /.row -->
+</div><!-- /.container -->
 
 	<script src="<?= base_url('assets/js/jquery-1.11.1.min.js');?>"></script>
 	<script src="<?= base_url('assets/js/bootstrap.min.js');?>"></script>
