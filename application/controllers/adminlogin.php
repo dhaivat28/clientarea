@@ -20,7 +20,7 @@ class Adminlogin extends CI_Controller {
 			$admin_id = $this->lgmodel->validate_adminlogin($email,$password);
 			if($admin_id) {
 				$this->session->set_userdata('admin_id',$admin_id);
-				return redirect('admin/dashboard');
+				return redirect('dashboard');
 				} else {
 				$this->session->set_flashdata('login_failed','Invalid Username or Password');
 				return redirect('adminlogin');
