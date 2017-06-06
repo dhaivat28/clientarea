@@ -10,6 +10,11 @@ body {
 	background: #f1f4f7;
 	padding-top: 50px;
 	color: #5f6468;
+	overflow-x: hidden;
+}
+
+.main-logo {
+	margin: 10px;
 }
 
 p {

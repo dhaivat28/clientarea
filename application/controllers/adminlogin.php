@@ -8,5 +8,4 @@ class Adminlogin extends CI_Controller {
 	}
 }
 
-
 ?>
