@@ -20,12 +20,25 @@ class Dashboard extends CI_Controller {
 		if($this->form_validation->run('add_client')){
 			$data = $this->input->post();
 			unset($data['submit']);
-			$this->load->model('articlesmodel','atm');
-			$this->_flashandredirect($this->atm->article_insert($data),"Added","Add");
+			$this->load->model('dashboardactivitymodel','damodel');
+			$this->_flashandredirect($this->damodel->client_insert($data),"Added","Add");
 			} else {
 			$this->load->view('admin/add_client');
 		}
 	}
+
+	private function _flashandredirect($success,$success_msg,$failure_msg)
+	{
+	if($success){
+		$this->session->set_flashdata('feedback',"Client $success_msg Successfully");
+		$this->session->set_flashdata('feedback_class','alert-success');
+	} else {
+		$this->session->set_flashdata('feedback',"Failed to $failure_msg client, Please try again");
+		$this->session->set_flashdata('feedback_class','alert-danger');
+	}
+	return redirect('dashboard/addclient');
+	}
+
 
 	public function __construct()
 	{

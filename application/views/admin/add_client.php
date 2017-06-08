@@ -26,7 +26,8 @@
 					<div class="panel-body">
 						<div class="col-md-6">
 							<?php echo form_open('dashboard/storeclient'); ?>
-
+							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
+							<?php echo form_hidden('created_at',date('y-m-d H:i:s')) ?>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
@@ -81,12 +82,6 @@
 									</div>
 								</div>
 
-								<!-- <div class="form-group has-success">
-									<input class="form-control" placeholder="Success">
-								</div>
-								<div class="form-group has-warning">
-									<input class="form-control" placeholder="Warning">
-								</div> -->
 								<div class="row">
 									<div class="col-lg-4">
 										<?php echo form_submit(['name'=>'submit','value'=>'Add Client','class'=>'btn btn-primary']); ?>
@@ -102,7 +97,21 @@
 							</div>
 
 							<div class="col-md-6">
-								Display errors here
+
+								<?php if($feedback = $this->session->flashdata('feedback')):
+									$feedback_class = $this->session->flashdata('feedback_class'); ?>
+
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="alert alert-dismissible <?= $feedback_class ?>">
+											  <button type="button" class="close" data-dismiss="alert">&times;</button>
+											  <strong><?= $feedback ?></strong>
+											</div>
+										</div>
+									</div>
+									<?php endif; ?>
+
+
 							</div>
 
 						</form>
