@@ -19,7 +19,11 @@ body {
 
 #active {
 background: #30a5ff;
-color: white;	
+color: white;
+}
+
+.form-error-custom {
+margin-top: 30px;
 }
 
 p {
