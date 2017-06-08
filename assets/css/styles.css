@@ -22,6 +22,34 @@ background: #30a5ff;
 color: white;
 }
 
+.domain-table {
+ border-collapse: collapse;
+ width: 100%;
+margin-top:5px;
+
+ }
+
+.domain-table td , .domain-table th {
+	border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.domain-table tr:nth-child(even){background-color: #f2f2f2}
+
+.domain-table tr:hover {background-color: #ddd;}
+
+.domain-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #428bca;
+	 border-color:whitesmoke;
+    color: white;
+	 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	 font-size: 14px;
+}
+
+
 .form-error-custom {
 margin-top: 30px;
 }

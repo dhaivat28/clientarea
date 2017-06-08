@@ -7,7 +7,7 @@
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
-			<li><?= anchor("dashboard/addclient",'Add Client',['id'=>'active']); ?></li>
+			<li><?= anchor("dashboard/manageclient",'Manage Client',['id'=>'active']); ?></li>
 		</ul>
 	</div><!--/.sidebar-->
 

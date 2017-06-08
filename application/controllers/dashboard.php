@@ -27,6 +27,13 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	public function manageclient() {
+		$this->load->helper('form');
+		$this->load->model('dashboardactivitymodel','damodel');
+		$all_clients = $this->damodel->client_list();
+		$this->load->view('admin/manage_client',['all_clients'=>$all_clients]);
+	}
+
 	private function _flashandredirect($success,$success_msg,$failure_msg)
 	{
 	if($success){
@@ -36,7 +43,7 @@ class Dashboard extends CI_Controller {
 		$this->session->set_flashdata('feedback',"Failed to $failure_msg client, Please try again");
 		$this->session->set_flashdata('feedback_class','alert-danger');
 	}
-	return redirect('dashboard/addclient');
+		return redirect('dashboard/addclient');
 	}
 
 

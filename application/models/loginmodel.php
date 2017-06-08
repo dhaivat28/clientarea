@@ -15,22 +15,6 @@ class Loginmodel extends CI_Model {
 		}
 	}
 
-	public function articles_list()
-	{
-		$cid = $this->session->userdata('client_user_id');
-
-		$query= $this->db
-							->select('title')
-							->select('body')
-							->select('created_at')
-							->select('article_id')
-							->from('articles')
-							->where('client_user_id',$cid)
-							->get();
-		return $query->result();
-
-	}
-
-
 }
+
 ?>

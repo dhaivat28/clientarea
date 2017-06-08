@@ -1,21 +1,12 @@
 <?php include('admin_header.php') ?>
 
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-
 		<img src="<?php echo base_url('assets/images/logo.png'); ?>" class="main-logo" width="200"  alt=""/>
-
-
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
-
 			<li><?= anchor("dashboard",'Dashboard',['id'=>'active']); ?></li>
-
-			<li><?= anchor("dashboard/addclient",'Add Client'); ?></li>
-
-
-
-
-
+			<li><?= anchor("dashboard/manageclient",'Manage Clients'); ?></li>
+			
 
 		</ul>
 	</div><!--/.sidebar-->
