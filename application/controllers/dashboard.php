@@ -43,7 +43,7 @@ class Dashboard extends CI_Controller {
 		$this->session->set_flashdata('feedback',"Failed to $failure_msg client, Please try again");
 		$this->session->set_flashdata('feedback_class','alert-danger');
 	}
-		return redirect('dashboard/addclient');
+		return redirect('dashboard/manageclient');
 	}
 
 

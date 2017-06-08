@@ -22,6 +22,10 @@ background: #30a5ff;
 color: white;
 }
 
+.button-box {
+	text-align: right;
+}
+
 .domain-table {
  border-collapse: collapse;
  width: 100%;

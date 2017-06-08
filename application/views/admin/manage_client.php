@@ -18,12 +18,40 @@
 				<li class="active">Manage Clients</li>
 			</ol>
 		</div><!--/.row-->
-		<br />
+<br />
+<div class="row">
+	<div class="col-lg-12">
+		<?php if($feedback = $this->session->flashdata('feedback')):
+			$feedback_class = $this->session->flashdata('feedback_class'); ?>
 
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-dismissible <?= $feedback_class ?>">
+					  <button type="button" class="close" data-dismiss="alert">&times;</button>
+					  <strong><?= $feedback ?></strong>
+					</div>
+				</div>
+			</div>
+			<?php endif; ?>
+	</div>
+</div>
+<br />
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Manage Clients</div>
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-lg-3">
+								Manage Clients
+							</div>
+							<div class="col-lg-9">
+								<div class="button-box">
+											<?=anchor("dashboard/addclient",'Add Client',['class'=>'btn btn-primary']); ?>
+								</div>
+							</div>
+						</div>
+
+					</div>
 					<div class="panel-body">
 						<table class="domain-table">
 						    <thead>

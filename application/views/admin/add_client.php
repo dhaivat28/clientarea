@@ -7,7 +7,7 @@
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
-			<li><?= anchor("dashboard/manageclient",'Manage Client',['id'=>'active']); ?></li>
+			<li><?= anchor("dashboard/manageclient",'Manage Client'); ?></li>
 		</ul>
 	</div><!--/.sidebar-->
 
@@ -18,11 +18,22 @@
 				<li class="active">Add Client</li>
 			</ol>
 		</div><!--/.row-->
-
+<br />
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Add New Client</div>
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-lg-3">
+								Add New Client
+							</div>
+							<div class="col-lg-9">
+								<div class="button-box">
+									<?=anchor("dashboard/manageclient",'&larr; Back To Manage Client',['class'=>'btn btn-default']); ?>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
 							<?php echo form_open('dashboard/storeclient'); ?>
@@ -96,23 +107,6 @@
 
 							</div>
 
-							<div class="col-md-6">
-
-								<?php if($feedback = $this->session->flashdata('feedback')):
-									$feedback_class = $this->session->flashdata('feedback_class'); ?>
-
-									<div class="row">
-										<div class="col-lg-12">
-											<div class="alert alert-dismissible <?= $feedback_class ?>">
-											  <button type="button" class="close" data-dismiss="alert">&times;</button>
-											  <strong><?= $feedback ?></strong>
-											</div>
-										</div>
-									</div>
-									<?php endif; ?>
-
-
-							</div>
 
 						</form>
 					</div>
