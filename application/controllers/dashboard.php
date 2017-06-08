@@ -34,6 +34,12 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/manage_client',['all_clients'=>$all_clients]);
 	}
 
+	public function delete_client($client_id)
+	{
+	$this->load->model('dashboardactivitymodel','damodel');
+	$this->_flashandredirect($this->damodel->delete_article($client_id),"Deleted","Delete");
+	}
+
 	private function _flashandredirect($success,$success_msg,$failure_msg)
 	{
 	if($success){

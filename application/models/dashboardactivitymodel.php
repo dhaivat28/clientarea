@@ -22,6 +22,11 @@ class Dashboardactivitymodel extends CI_Model {
 		return $query->result();
 	}
 
+	public function delete_article($client_id)
+	{
+		$query = $this->db->delete('clients',['client_id'=>$client_id]);
+		return $query;
+	}
 
 }
 
