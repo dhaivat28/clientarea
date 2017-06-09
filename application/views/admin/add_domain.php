@@ -39,17 +39,18 @@
 							<?php echo form_open('domainandhosting/store_domain'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
 							<?php echo form_hidden('created_at',date('d-m-y H:i:s')) ?>
+
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Client</label>
-												<?php echo form_input(['name'=>'cname','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Full name','value'=>set_value('cname')]); ?>
+												<?php echo form_input(['name'=>'cname','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Client name','value'=>set_value('cname')]); ?>
 										</div>
 
 										<div class="col-lg-6">
-										</div>
-										<div class="form-error-custom">
-											<?php echo form_error('cname'); ?>
+											<div class="form-error-custom">
+												<?php echo form_error('cname'); ?>
+											</div>
 										</div>
 									</div>
 
@@ -59,11 +60,11 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Domain Name:</label>
-											<?php echo form_input(['name'=>'email','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Email','value'=>set_value('email')]); ?>
+											<?php echo form_input(['name'=>'domain ','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain','value'=>set_value('domain')]); ?>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('email'); ?>
+												<?php echo form_error('domain'); ?>
 											</div>
 										</div>
 									</div>
@@ -105,7 +106,7 @@
 
 							</div>
 
-
+							<?php echo form_close(); ?>
 						</form>
 					</div>
 				</div>
