@@ -58,6 +58,7 @@
 						    <tr>
 						        <th>Sr No.</th>
 								  <th>Client Id</th>
+								  <th>Created_at</th>
 						        <th>Client Name</th>
 						        <th>Email</th>
 								  <th>Mobile No</th>
@@ -74,6 +75,7 @@
 								<tr>
 									<td> <?= ++$count ?></td>
 									<td><?= $k->client_id ?></td>
+									<td><?= $k->created_at ?></td>
 									<td><?= $k->cname ?></td>
 									<td><?= $k->email ?></td>
 									<td><?= $k->mobile ?></td>

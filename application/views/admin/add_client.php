@@ -38,7 +38,7 @@
 						<div class="col-md-6">
 							<?php echo form_open('dashboard/storeclient'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
-							<?php echo form_hidden('created_at',date('y-m-d H:i:s')) ?>
+							<?php echo form_hidden('created_at',date('d-m-y H:i:s')) ?>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">

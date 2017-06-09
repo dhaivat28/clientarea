@@ -13,6 +13,7 @@ class Dashboardactivitymodel extends CI_Model {
 		$query= $this->db
 							->select('client_id')
 							->select('cname')
+							->select('created_at')
 							->select('email')
 							->select('mobile')
 							->select('remarks')
