@@ -22,10 +22,26 @@ class Dashboardactivitymodel extends CI_Model {
 		return $query->result();
 	}
 
-	public function delete_article($client_id)
+	public function find_client($client_id)
+	{
+		$query = $this->db
+							->select(['client_id','cname','email','mobile','remarks'])
+							->where('client_id',$client_id)
+							->get('clients');
+		return $query->row();
+	}
+
+	public function delete_client($client_id)
 	{
 		$query = $this->db->delete('clients',['client_id'=>$client_id]);
 		return $query;
+	}
+
+	public function update_client($client_id,Array $data)
+	{
+		return $this->db
+					->where('client_id',$client_id)
+					->update('clients',$data);
 	}
 
 }

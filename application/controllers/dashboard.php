@@ -27,6 +27,31 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
+	/*------------------------------------  Edit Client ------------------------------*/
+
+	public function edit_client($client_id)
+	{
+		$this->load->helper('form');
+		$this->load->model('dashboardactivitymodel','damodel');
+		$find_client = $this->damodel->find_client($client_id);
+		$this->load->view('admin/edit_client',['find_client'=>$find_client]);
+	}
+
+	public function updateclient($client_id)
+	{
+		$this->load->library('form_validation');
+		$this->load->model('dashboardactivitymodel','damodel');
+		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+		if($this->form_validation->run('add_client')){
+			$data = $this->input->post();
+			unset($data['submit']);
+			$this->_flashandredirect($this->damodel->update_client($client_id,$data),"Updated","Update");
+		} else {
+			$find_client = $this->damodel->find_client($client_id);
+			$this->load->view('admin/edit_client',['find_client'=>$find_client]);
+		}
+	}
+
 	public function manageclient() {
 		$this->load->helper('form');
 		$this->load->model('dashboardactivitymodel','damodel');
@@ -37,7 +62,7 @@ class Dashboard extends CI_Controller {
 	public function delete_client($client_id)
 	{
 	$this->load->model('dashboardactivitymodel','damodel');
-	$this->_flashandredirect($this->damodel->delete_article($client_id),"Deleted","Delete");
+	$this->_flashandredirect($this->damodel->delete_client($client_id),"Deleted","Delete");
 	}
 
 	private function _flashandredirect($success,$success_msg,$failure_msg)
