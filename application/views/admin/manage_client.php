@@ -7,7 +7,7 @@
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
 			<li><?= anchor("dashboard/manageclient",'Manage Clients',['id'=>'active']); ?></li>
-
+			
 		</ul>
 	</div><!--/.sidebar-->
 

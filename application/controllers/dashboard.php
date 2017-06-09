@@ -8,6 +8,13 @@ class Dashboard extends CI_Controller {
 		$this->load->view('admin/dashboard');
 	}
 
+	public function manageclient() {
+		$this->load->helper('form');
+		$this->load->model('dashboardactivitymodel','damodel');
+		$all_clients = $this->damodel->client_list();
+		$this->load->view('admin/manage_client',['all_clients'=>$all_clients]);
+	}
+
 	public function addclient() {
 		$this->load->helper('form');
 		$this->load->view('admin/add_client');
@@ -52,13 +59,6 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
-	public function manageclient() {
-		$this->load->helper('form');
-		$this->load->model('dashboardactivitymodel','damodel');
-		$all_clients = $this->damodel->client_list();
-		$this->load->view('admin/manage_client',['all_clients'=>$all_clients]);
-	}
-
 	public function delete_client($client_id)
 	{
 	$this->load->model('dashboardactivitymodel','damodel');
@@ -77,13 +77,11 @@ class Dashboard extends CI_Controller {
 		return redirect('dashboard/manageclient');
 	}
 
-
 	public function __construct()
 	{
 		parent::__construct();
 		if(!$this->session->userdata('admin_id'))
 		{return redirect('adminlogin');}
-
 	}
 
 
