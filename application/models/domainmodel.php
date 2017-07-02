@@ -13,12 +13,40 @@ class Domainmodel extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function get_c_name($c_id)
+	{
+		$query= $this->db
+							->select('cname')
+							->from('clients')
+							->where('client_id',$c_id)
+							->get();
+		return $query->result();
+	}
 
 	public function add_domain($data)
 	{
-		print_r($data);
 		return $status = $this->db->insert('domains',$data);
 	}
+
+	public function all_services()
+	{
+		$a_id = $this->session->userdata('admin_id');
+		$query= $this->db
+							->select('added_on')
+							->select('domain_id')
+							->select('domain_name')
+							->select('client_id')
+							->select('client_name')
+							->select('p_date')
+							->select('service_type')
+							->select('years')
+							->select('expiry_date')
+							->from('domains')
+							->where('admin_id',$a_id)
+							->get();
+		return $query->result();
+	}
+
 
 
 }

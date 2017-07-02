@@ -39,11 +39,12 @@
 							<?php echo form_open('domainandhosting/store_domain'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
 
+
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Client : </label>
-											<select name="cd_name" >
+											<select name="client_id" >
     											<?php
 												foreach($dropdown_list as $dlist)
 												{
@@ -57,7 +58,7 @@
 
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('cd_name'); ?>
+												<?php echo form_error('client_id'); ?>
 											</div>
 										</div>
 									</div>
@@ -67,12 +68,12 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Domain</label>
-												<?php echo form_input(['name'=>'domain_field','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain Name','value'=>set_value('domain_field')]); ?>
+												<?php echo form_input(['name'=>'domain_name','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain Name','value'=>set_value('domain_name')]); ?>
 										</div>
 
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('domain_field'); ?>
+												<?php echo form_error('domain_name'); ?>
 											</div>
 										</div>
 									</div>
@@ -83,7 +84,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Purchase Date</label>
+											<label>Domain Registration Date</label>
 												<?php echo form_input(['name'=>'p_date','type'=>'date','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Purchase Date','value'=>set_value('p_date')]); ?>
 										</div>
 
@@ -121,7 +122,14 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Years</label>
-												<?php echo form_input(['name'=>'years','id'=>'inputEmail','class'=>'form-control','placeholder'=>'No of Years','value'=>set_value('years')]); ?>
+											<select name="years">
+											<option value="+1 years">1</option>
+											<option value="+2 years">2</option>
+											<option value="+3 years">3</option>
+											<option value="+4 years">4</option>
+											<option value="+5 years">5</option>
+
+											</select>
 										</div>
 
 										<div class="col-lg-6">

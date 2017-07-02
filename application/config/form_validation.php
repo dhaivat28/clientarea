@@ -18,18 +18,18 @@ $config = [
 
 		'add_domain'	=> [
 									[
-										'field'=>'cname',
-										'label'=>'cd_name',
+										'field'=>'client_id',
+										'label'=>'client_id',
 										'rules'=>'required|trim'
 									],
 									[
-										'field'=>'domain_field',
-										'label'=>'domain',
+										'field'=>'domain_name',
+										'label'=>'domain_name',
 										'rules'=>'required|trim'
 									],
 									[
 										'field'=>'p_date',
-										'label'=>'Purchase date',
+										'label'=>'p_date',
 										'rules'=>'required|trim'
 									],
 									[
@@ -40,7 +40,7 @@ $config = [
 									[
 										'field'=>'years',
 										'label'=>'years',
-										'rules'=>'required|trim|numeric'
+										'rules'=>'required|trim'
 									]
 
 								],

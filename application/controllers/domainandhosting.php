@@ -8,6 +8,16 @@ class Domainandhosting extends CI_Controller {
 		$this->load->view('admin/dashboard');
 	}
 
+
+	public function manage_services()
+	{
+		$this->load->helper('form');
+		$this->load->model('domainmodel','dm');
+		$all_services = $this->dm->all_services();
+		$this->load->view('admin/manage_services',['all_services'=>$all_services]);
+
+	}
+
 	public function add_domain() {
 		$this->load->helper('form');
 		$this->load->model('domainmodel','dm');
@@ -16,16 +26,34 @@ class Domainandhosting extends CI_Controller {
 	}
 
 
+
 	public function store_domain()
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
 		if($this->form_validation->run('add_domain')){
 			$data = $this->input->post();
-			unset($data['submit']);
+		 	unset($data['submit']);
 			$this->load->model('domainmodel','dm');
+			$c_id = $this->input->post('client_id');
+			$cl_name= $this->dm->get_c_name($c_id);
+			$my_values = array();
+			foreach($cl_name as $row)
+			{	$my_values[] = $row->cname; }
+			$client_name = $my_values[0];
+			$client_name_array = array('client_name' => $client_name);
+			$data = array_merge($data, $client_name_array);
+			$p_date = $this->input->post('p_date');
+			$length = $this->input->post('years');
+			$expiry_date = date('Y-m-d', strtotime($length, strtotime($p_date)));
+			$date_expiry_array = array('expiry_date' => $expiry_date);
+   		$data = array_merge($data, $date_expiry_array);
+			$now = new DateTime();
+			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
+		 	$n = $now->format('Y-m-d H:i:s');
+			$now_date = array('added_on' => $n);
+   		$data = array_merge($data, $now_date);
 			$this->dm->add_domain($data);
-
 			// $this->_flashandredirect($this->atm->article_insert($data),"Added","Add");
 			} else {
 			$this->load->view('admin/add_domain');
