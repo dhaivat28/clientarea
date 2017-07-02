@@ -25,8 +25,6 @@ class Domainandhosting extends CI_Controller {
 		$this->load->view('admin/add_domain',['dropdown_list'=>$dropdown_list]);
 	}
 
-
-
 	public function store_domain()
 	{
 		$this->load->library('form_validation');
@@ -60,6 +58,11 @@ class Domainandhosting extends CI_Controller {
 		}
 	}
 
+	public function delete_service($service_id) {
+			$this->load->model('domainmodel','dm');
+			$this->_flashandredirect($this->dm->delete_service($service_id),"Deleted","Delete");
+	}
+
 	private function _flashandredirect($success,$success_msg,$failure_msg)
 	{
 	if($success){
@@ -69,7 +72,7 @@ class Domainandhosting extends CI_Controller {
 		$this->session->set_flashdata('feedback',"Failed to $failure_msg client, Please try again");
 		$this->session->set_flashdata('feedback_class','alert-danger');
 	}
-		return redirect('dashboard/manageclient');
+		return redirect('domainandhosting/manage_services');
 	}
 
 	public function __construct()

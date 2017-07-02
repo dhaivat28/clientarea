@@ -58,7 +58,7 @@
 						    <tr>
 						        <th>Sr No.</th>
 								  <th>Added On</th>
-								  <th>Domain Id</th>
+								  <th>Service Id</th>
 								  <th>Domain Name</th>
 						        <th>Client Name</th>
 						        <th>Domain Reg. Date</th>
@@ -76,14 +76,14 @@
 								<tr>
 									<td> <?= ++$count ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
-									<td><?= $k->domain_id ?></td>
+									<td><?= $k->service_id ?></td>
 									<td><?= $k->domain_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
 									<td><?= $key = $k->service_type ?></td>
-									<td>		<?=anchor("dashboard/delete_client/{$k->client_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									<td>		<?=anchor("domainandhosting/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
 											</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>

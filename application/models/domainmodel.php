@@ -25,7 +25,7 @@ class Domainmodel extends CI_Model {
 
 	public function add_domain($data)
 	{
-		return $status = $this->db->insert('domains',$data);
+		return $status = $this->db->insert('services',$data);
 	}
 
 	public function all_services()
@@ -33,7 +33,7 @@ class Domainmodel extends CI_Model {
 		$a_id = $this->session->userdata('admin_id');
 		$query= $this->db
 							->select('added_on')
-							->select('domain_id')
+							->select('service_id')
 							->select('domain_name')
 							->select('client_id')
 							->select('client_name')
@@ -41,10 +41,15 @@ class Domainmodel extends CI_Model {
 							->select('service_type')
 							->select('years')
 							->select('expiry_date')
-							->from('domains')
+							->from('services')
 							->where('admin_id',$a_id)
 							->get();
 		return $query->result();
+	}
+
+	public function delete_service($service_id) {
+		$query = $this->db->delete('services',['service_id'=>$service_id]);
+		return $query;
 	}
 
 
