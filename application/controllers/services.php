@@ -1,6 +1,6 @@
 <?php
 
-class Domainandhosting extends CI_Controller {
+class Services extends CI_Controller {
 
 	public function index()
 	{
@@ -8,33 +8,32 @@ class Domainandhosting extends CI_Controller {
 		$this->load->view('admin/dashboard');
 	}
 
-
 	public function manage_services()
 	{
 		$this->load->helper('form');
-		$this->load->model('domainmodel','dm');
-		$all_services = $this->dm->all_services();
+		$this->load->model('servicesmodel','sm');
+		$all_services = $this->sm->all_services();
 		$this->load->view('admin/manage_services',['all_services'=>$all_services]);
 
 	}
 
-	public function add_domain() {
+	public function add_service() {
 		$this->load->helper('form');
-		$this->load->model('domainmodel','dm');
-		$dropdown_list = $this->dm->dropdown_list();
-		$this->load->view('admin/add_domain',['dropdown_list'=>$dropdown_list]);
+		$this->load->model('servicesmodel','sm');
+		$dropdown_list = $this->sm->dropdown_list();
+		$this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list]);
 	}
 
-	public function store_domain()
+	public function store_service()
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
 		if($this->form_validation->run('add_domain')){
 			$data = $this->input->post();
 		 	unset($data['submit']);
-			$this->load->model('domainmodel','dm');
+			$this->load->model('servicesmodel','sm');
 			$c_id = $this->input->post('client_id');
-			$cl_name= $this->dm->get_c_name($c_id);
+			$cl_name= $this->sm->get_c_name($c_id);
 			$my_values = array();
 			foreach($cl_name as $row)
 			{	$my_values[] = $row->cname; }
@@ -51,28 +50,27 @@ class Domainandhosting extends CI_Controller {
 		 	$n = $now->format('Y-m-d H:i:s');
 			$now_date = array('added_on' => $n);
    		$data = array_merge($data, $now_date);
-			$this->dm->add_domain($data);
-			// $this->_flashandredirect($this->atm->article_insert($data),"Added","Add");
+ 			$this->_flashandredirect($this->sm->add_domain($data),"Added","Add");
 			} else {
 			$this->load->view('admin/add_domain');
 		}
 	}
 
 	public function delete_service($service_id) {
-			$this->load->model('domainmodel','dm');
+			$this->load->model('servicesmodel','dm');
 			$this->_flashandredirect($this->dm->delete_service($service_id),"Deleted","Delete");
 	}
 
 	private function _flashandredirect($success,$success_msg,$failure_msg)
 	{
 	if($success){
-		$this->session->set_flashdata('feedback',"Client $success_msg Successfully");
+		$this->session->set_flashdata('feedback',"Service $success_msg Successfully");
 		$this->session->set_flashdata('feedback_class','alert-success');
 	} else {
-		$this->session->set_flashdata('feedback',"Failed to $failure_msg client, Please try again");
+		$this->session->set_flashdata('feedback',"Failed to $failure_msg Service, Please try again");
 		$this->session->set_flashdata('feedback_class','alert-danger');
 	}
-		return redirect('domainandhosting/manage_services');
+		return redirect('services/manage_services');
 	}
 
 	public function __construct()

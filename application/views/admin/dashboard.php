@@ -6,8 +6,7 @@
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard',['id'=>'active']); ?></li>
 			<li><?= anchor("dashboard/manageclient",'Manage Clients'); ?></li>
-			<li><?= anchor("domainandhosting/add_domain",'Add Domains'); ?></li>
-			<li><?= anchor("domainandhosting/manage_services",'Manage Services'); ?></li>
+			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
 
 		</ul>
 	</div><!--/.sidebar-->

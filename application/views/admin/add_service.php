@@ -7,7 +7,7 @@
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
-			<li><?= anchor("dashboard/manageclient",'Manage Client'); ?></li>
+
 		</ul>
 	</div><!--/.sidebar-->
 
@@ -29,14 +29,14 @@
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
-									<?=anchor("dashboard/manageclient",'&larr; Go Back ',['class'=>'btn btn-default']); ?>
+									<?=anchor("services/manage_services",'&larr; Go Back ',['class'=>'btn btn-default']); ?>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<?php echo form_open('domainandhosting/store_domain'); ?>
+							<?php echo form_open('services/store_service'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
 
 

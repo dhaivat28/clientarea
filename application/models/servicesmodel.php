@@ -1,6 +1,6 @@
 <?php
 
-class Domainmodel extends CI_Model {
+class Servicesmodel extends CI_Model {
 
 	public function dropdown_list() {
 		$a_id = $this->session->userdata('admin_id');

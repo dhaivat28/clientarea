@@ -46,7 +46,7 @@
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
-											<?=anchor("dashboard/addclient",'Add Client',['class'=>'btn btn-primary']); ?>
+											<?=anchor("services/add_service",'Add Service',['class'=>'btn btn-primary']); ?>
 								</div>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
 									<td><?= $key = $k->service_type ?></td>
-									<td>		<?=anchor("domainandhosting/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
 											</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>
