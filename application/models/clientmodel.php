@@ -1,6 +1,6 @@
 <?php
 
-class Dashboardactivitymodel extends CI_Model {
+class Clientmodel extends CI_Model {
 
 	public function client_insert($data)
 	{

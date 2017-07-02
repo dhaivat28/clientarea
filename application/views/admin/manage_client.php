@@ -7,7 +7,7 @@
 			<li role="presentation" class="divider"></li>
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
 			<li><?= anchor("dashboard/manageclient",'Manage Clients',['id'=>'active']); ?></li>
-			
+
 		</ul>
 	</div><!--/.sidebar-->
 
@@ -46,7 +46,7 @@
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
-											<?=anchor("dashboard/addclient",'Add Client',['class'=>'btn btn-primary']); ?>
+											<?=anchor("client/addclient",'Add Client',['class'=>'btn btn-primary']); ?>
 								</div>
 							</div>
 						</div>
@@ -57,8 +57,7 @@
 						    <thead>
 						    <tr>
 						        <th>Sr No.</th>
-								  <th>Client Id</th>
-								  <th>Created_at</th>
+								  <th>Added On</th>
 						        <th>Client Name</th>
 						        <th>Email</th>
 								  <th>Mobile No</th>
@@ -74,8 +73,7 @@
 						   	foreach ($all_clients as $k): ?>
 								<tr>
 									<td> <?= ++$count ?></td>
-									<td><?= $k->client_id ?></td>
-									<td><?= $k->created_at ?></td>
+									<td><?= date("d - M - Y h:ia",  strtotime($k->created_at));?></td>
 									<td><?= $k->cname ?></td>
 									<td><?= $k->email ?></td>
 									<td><?= $k->mobile ?></td>
@@ -83,11 +81,11 @@
 									<td>
 										<div class="row">
 											<div class="col-md-4 col-md-push-2">
-												<?=anchor("dashboard/edit_client/{$k->client_id}",'Edit',['class'=>'btn btn-primary']); ?>
+												<?=anchor("client/edit_client/{$k->client_id}",'Edit',['class'=>'btn btn-primary']); ?>
 											</div>
 
 											<div class="col-md-4 col-md-push-2">
-												<?=anchor("dashboard/delete_client/{$k->client_id}",'Delete',['class'=>'btn btn-danger']); ?>
+												<?=anchor("client/delete_client/{$k->client_id}",'Delete',['class'=>'btn btn-danger']); ?>
 											</div>
 
 										</div>

@@ -29,14 +29,14 @@
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
-									<?=anchor("dashboard/manageclient",'&larr; Back To Manage Client',['class'=>'btn btn-default']); ?>
+									<?=anchor("client/manageclient",'&larr; Back To Manage Client',['class'=>'btn btn-default']); ?>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<?php echo form_open("dashboard/updateclient/{$find_client->client_id}"); ?>
+							<?php echo form_open("client/updateclient/{$find_client->client_id}"); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
 								<div class="form-group">
 									<div class="row">
