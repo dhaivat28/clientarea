@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->view('admin/add_client');
 	}
-
+	
 	public function storeclient()
 	{
 		$this->load->library('form_validation');

@@ -38,59 +38,99 @@
 						<div class="col-md-6">
 							<?php echo form_open('domainandhosting/store_domain'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
-							<?php echo form_hidden('created_at',date('d-m-y H:i:s')) ?>
 
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Client</label>
-												<?php echo form_input(['name'=>'cname','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Client name','value'=>set_value('cname')]); ?>
+											<label>Client : </label>
+											<select name="cd_name" >
+    											<?php
+												foreach($dropdown_list as $dlist)
+												{
+												?>
+												<option value="<?=$dlist['client_id']?>"><?=$dlist['cname']?></option>
+												<?php
+												}
+												?>
+											</select>
 										</div>
 
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('cname'); ?>
+												<?php echo form_error('cd_name'); ?>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="row">
+										<div class="col-lg-6">
+											<label>Domain</label>
+												<?php echo form_input(['name'=>'domain_field','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain Name','value'=>set_value('domain_field')]); ?>
+										</div>
+
+										<div class="col-lg-6">
+											<div class="form-error-custom">
+												<?php echo form_error('domain_field'); ?>
 											</div>
 										</div>
 									</div>
 
 								</div>
 
+
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Domain Name:</label>
-											<?php echo form_input(['name'=>'domain ','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain','value'=>set_value('domain')]); ?>
+											<label>Purchase Date</label>
+												<?php echo form_input(['name'=>'p_date','type'=>'date','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Purchase Date','value'=>set_value('p_date')]); ?>
 										</div>
+
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('domain'); ?>
+												<?php echo form_error('p_date'); ?>
 											</div>
 										</div>
 									</div>
+
 								</div>
 
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
 												<label>Select Service:</label><br />
-												<?php echo form_radio('gender', '1', TRUE);?>
+												<?php echo form_radio('service_type', '1', TRUE);?>
 												<?php echo form_label('Domain Only', 'service');?><br />
 
-												<?php echo form_radio('gender', '2', FALSE); ?>
+												<?php echo form_radio('service_type', '2', FALSE); ?>
 												<?php echo form_label('Hosting Only', 'service');?><br />
 
-												<?php echo form_radio('gender', '3', FALSE); ?>
+												<?php echo form_radio('service_type', '3', FALSE); ?>
 												<?php echo form_label('Domain + Hosting ', 'service');?>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('mobile'); ?>
+												<?php echo form_error('service_type'); ?>
 											</div>
 										</div>
 									</div>
 								</div>
 
+								<div class="form-group">
+									<div class="row">
+										<div class="col-lg-6">
+											<label>Years</label>
+												<?php echo form_input(['name'=>'years','id'=>'inputEmail','class'=>'form-control','placeholder'=>'No of Years','value'=>set_value('years')]); ?>
+										</div>
+
+										<div class="col-lg-6">
+											<div class="form-error-custom">
+												<?php echo form_error('years'); ?>
+											</div>
+										</div>
+									</div>
+								</div>
 
 								<div class="row">
 									<div class="col-lg-3">

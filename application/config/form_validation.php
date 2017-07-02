@@ -16,6 +16,35 @@ $config = [
 									]
 								],
 
+		'add_domain'	=> [
+									[
+										'field'=>'cname',
+										'label'=>'cd_name',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'domain_field',
+										'label'=>'domain',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'p_date',
+										'label'=>'Purchase date',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'service_type',
+										'label'=>'service_type',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'years',
+										'label'=>'years',
+										'rules'=>'required|trim|numeric'
+									]
+
+								],
+
 		'add_client'	=> [
 									[
 										'field'=>'cname',
