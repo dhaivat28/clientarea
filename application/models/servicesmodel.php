@@ -3,12 +3,10 @@
 class Servicesmodel extends CI_Model {
 
 	public function dropdown_list() {
-		$a_id = $this->session->userdata('admin_id');
 		$query= $this->db
 							->select('client_id')
 							->select('cname')
 							->from('clients')
-							->where('admin_id',$a_id)
 							->get();
 		return $query->result_array();
 	}

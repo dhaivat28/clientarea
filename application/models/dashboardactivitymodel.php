@@ -9,7 +9,6 @@ class Dashboardactivitymodel extends CI_Model {
 
 	public function client_list()
 	{
-		$a_id = $this->session->userdata('admin_id');
 		$query= $this->db
 							->select('client_id')
 							->select('cname')
@@ -18,7 +17,6 @@ class Dashboardactivitymodel extends CI_Model {
 							->select('mobile')
 							->select('remarks')
 							->from('clients')
-							->where('admin_id',$a_id)
 							->get();
 		return $query->result();
 	}
