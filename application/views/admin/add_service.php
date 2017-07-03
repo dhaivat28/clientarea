@@ -43,7 +43,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Client : </label>
+											<label>Select Client : </label>
 											<select name="client_id" >
     											<?php
 												foreach($dropdown_list as $dlist)
@@ -79,7 +79,6 @@
 									</div>
 
 								</div>
-
 
 								<div class="form-group">
 									<div class="row">
@@ -121,7 +120,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Years</label>
+											<label>Years : </label>
 											<select name="years">
 											<option value="+1 years">1</option>
 											<option value="+2 years">2</option>
@@ -140,9 +139,25 @@
 									</div>
 								</div>
 
+								<div class="form-group">
+									<div class="row">
+										<div class="col-lg-6">
+											<label>Service Charges</label>
+												<?php echo form_input(['name'=>'service_charges','type'=>'text','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Enter Service Charges','value'=>set_value('service_charges')]); ?>
+										</div>
+
+										<div class="col-lg-6">
+											<div class="form-error-custom">
+												<?php echo form_error('service_charges'); ?>
+											</div>
+										</div>
+									</div>
+
+								</div>
+	<br />
 								<div class="row">
 									<div class="col-lg-3">
-										<?php echo form_submit(['name'=>'submit','value'=>'Add Domain','class'=>'btn btn-primary']); ?>
+										<?php echo form_submit(['name'=>'submit','value'=>'Add Service','class'=>'btn btn-primary']); ?>
 									</div>
 									<div class="col-lg-3">
 										<?php echo form_reset(['name'=>'reset','value'=>'Reset','class'=>'btn btn-success btn-md']); ?>
@@ -156,6 +171,7 @@
 
 							<?php echo form_close(); ?>
 						</form>
+
 					</div>
 				</div>
 			</div><!-- /.col-->

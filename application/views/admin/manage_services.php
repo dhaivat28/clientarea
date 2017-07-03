@@ -64,7 +64,8 @@
 						        <th>Domain Reg. Date</th>
 								  <th>Years</th>
 						        <th>Domain Exp. Date</th>
-							    <th>service_type</th>
+							    <th>Service_type</th>
+								 <th>Service_Charges</th>
 						    </tr>
 						    </thead>
 							 <tbody>
@@ -82,13 +83,24 @@
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-									<td><?= $key = $k->service_type ?></td>
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									<td>
+										<?php
+										$key = $k->service_type;
+										if($key==0)	{	echo "Domain Only";	}
+										elseif ($key==1) { echo "Hosting Only"; }
+										else { echo "Domain + Hosting"; }
+										?>
+									</td>
+									<td><?= $k->service_charges ?></td>
+									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
+									</td>
+									<td>		<?=anchor("payments/add_payment/{$k->service_id}",' Payment',['class'=>'btn btn-primary']); ?>
+									</td>
 											</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>
 					   <tr>
-						   <td colspan="7">No Records Found</td>
+						   <td colspan="10">No Records Found</td>
 					   </tr>
 				   <?php endif; ?>
 

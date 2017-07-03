@@ -83,6 +83,7 @@
 									<td><?= $k->amount ?></td>
 									<td><?= $k->p_status ?></td>
 									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									</td>
 								</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>

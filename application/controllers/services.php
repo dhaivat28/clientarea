@@ -27,7 +27,7 @@ class Services extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
-		if($this->form_validation->run('add_domain')){
+		if($this->form_validation->run('add_service')){
 			$data = $this->input->post();
 			$payment_data = $this->input->post();
 			unset($data['submit']);

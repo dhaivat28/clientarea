@@ -37,6 +37,7 @@ class Servicesmodel extends CI_Model {
 							->select('client_name')
 							->select('p_date')
 							->select('service_type')
+							->select('service_charges')
 							->select('years')
 							->select('expiry_date')
 							->from('services')

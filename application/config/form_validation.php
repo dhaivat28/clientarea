@@ -16,7 +16,7 @@ $config = [
 									]
 								],
 
-		'add_domain'	=> [
+		'add_service'	=> [
 									[
 										'field'=>'client_id',
 										'label'=>'client_id',
@@ -35,6 +35,11 @@ $config = [
 									[
 										'field'=>'service_type',
 										'label'=>'service_type',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'service_charges',
+										'label'=>'service_charges',
 										'rules'=>'required|trim'
 									],
 									[

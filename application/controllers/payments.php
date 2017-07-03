@@ -16,9 +16,9 @@ class Payments extends CI_Controller {
 		$this->load->view('admin/manage_payments',['all_payments'=>$all_payments]);
 	}
 
-	public function add_payment() {
+	public function add_payment($service_id) {
 		$this->load->helper('form');
-		// $this->load->model('servicesmodel','sm');
+		$this->load->model('paymentsmodel','sm');
 		// $dropdown_list = $this->sm->dropdown_list();
 		// $this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list]);
 		$this->load->view('admin/add_payment');
