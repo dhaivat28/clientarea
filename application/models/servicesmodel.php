@@ -18,10 +18,10 @@ class Servicesmodel extends CI_Model {
 							->from('clients')
 							->where('client_id',$c_id)
 							->get();
-		return $query->result();
+		return $query->row()->cname;
 	}
 
-	public function add_domain($data)
+	public function add_service($data)
 	{
 		return $status = $this->db->insert('services',$data);
 	}

@@ -30,27 +30,30 @@ class Services extends CI_Controller {
 		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
 		if($this->form_validation->run('add_domain')){
 			$data = $this->input->post();
-		 	unset($data['submit']);
+			$payment_data = $this->input->post();
+			unset($data['submit']);
 			$this->load->model('servicesmodel','sm');
 			$c_id = $this->input->post('client_id');
-			$cl_name= $this->sm->get_c_name($c_id);
-			$my_values = array();
-			foreach($cl_name as $row)
-			{	$my_values[] = $row->cname; }
-			$client_name = $my_values[0];
-			$client_name_array = array('client_name' => $client_name);
-			$data = array_merge($data, $client_name_array);
+			$client_name= $this->sm->get_c_name($c_id);
 			$p_date = $this->input->post('p_date');
 			$length = $this->input->post('years');
 			$expiry_date = date('Y-m-d', strtotime($length, strtotime($p_date)));
-			$date_expiry_array = array('expiry_date' => $expiry_date);
-   		$data = array_merge($data, $date_expiry_array);
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
-			$now_date = array('added_on' => $n);
-   		$data = array_merge($data, $now_date);
- 			$this->_flashandredirect($this->sm->add_domain($data),"Added","Add");
+			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n);
+			$data = array_merge($data, $final_array);
+
+			// main service execution
+			$this->sm->add_service($data);
+
+			$this->load->model('paymentsmodel','pyml');
+			$d = $this->input->post('domain_name');
+			$s_id = $this->pyml->get_s_id($d);
+			$p_status = "pending";
+			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n);
+
+			$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
 			} else {
 			$this->load->view('admin/add_domain');
 		}
