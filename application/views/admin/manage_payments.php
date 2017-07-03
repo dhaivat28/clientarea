@@ -62,8 +62,10 @@
 								  <th>Service Id</th>
 								  <th>Transaction Id</th>
 						        <th>Transaction Date</th>
-						        <th>Amount</th>
+								  <th>Service Charges</th>
+						        <th>Amount Paid</th>
 								  <th>Payment Status</th>
+								  <th>Payment method</th>
 
 						    </tr>
 						    </thead>
@@ -80,9 +82,11 @@
 									<td><?= $k->service_id ?></td>
 									<td><?= $k->tr_id ?></td>
 									<td><?= date("d-m-Y", strtotime($k->tr_date));?></td>
-									<td><?= $k->amount ?></td>
+									<td><?= $k->service_charges ?></td>
+									<td><?= $k->amount_paid ?></td>
 									<td><?= $k->p_status ?></td>
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									<td><?= $k->p_method ?></td>
+									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Update',['class'=>'btn btn-danger']); ?>
 									</td>
 								</tr>
 						   <?php endforeach; ?>

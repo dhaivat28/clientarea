@@ -21,8 +21,10 @@ class Paymentsmodel extends CI_Model {
 							->select('service_id')
 							->select('tr_id')
 							->select('tr_date')
-							->select('amount')
+							->select('service_charges')
+							->select('amount_paid')
 							->select('p_status')
+							->select('p_method')
 							->from('payments')
 							->get();
 		return $query->result();

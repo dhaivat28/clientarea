@@ -86,8 +86,8 @@
 									<td>
 										<?php
 										$key = $k->service_type;
-										if($key==0)	{	echo "Domain Only";	}
-										elseif ($key==1) { echo "Hosting Only"; }
+										if($key==1)	{	echo "Domain Only";	}
+										elseif ($key==2) { echo "Hosting Only"; }
 										else { echo "Domain + Hosting"; }
 										?>
 									</td>

@@ -47,10 +47,14 @@ class Services extends CI_Controller {
 			$done = $this->sm->add_service($data);
 
 			$this->load->model('paymentsmodel','pyml');
+
 			$d = $this->input->post('domain_name');
 			$s_id = $this->pyml->get_s_id($d);
-			$p_status = "pending";
-			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n);
+			$p_status = "No Patments yet";
+
+			$service_charges = $this->input->post('service_charges');
+
+			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges);
 
 				if($done)
 				{
