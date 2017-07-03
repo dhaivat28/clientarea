@@ -11,10 +11,9 @@ class Payments extends CI_Controller {
 	public function manage_payments()
 	{
 		$this->load->helper('form');
-		$this->load->model('servicesmodel','sm');
-		$all_services = $this->sm->all_services();
-		$this->load->view('admin/manage_services',['all_services'=>$all_services]);
-
+		$this->load->model('paymentsmodel','pyml');
+		$all_payments = $this->pyml->all_payments();
+		$this->load->view('admin/manage_payments',['all_payments'=>$all_payments]);
 	}
 
 	public function add_payment() {

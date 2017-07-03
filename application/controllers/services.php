@@ -14,7 +14,6 @@ class Services extends CI_Controller {
 		$this->load->model('servicesmodel','sm');
 		$all_services = $this->sm->all_services();
 		$this->load->view('admin/manage_services',['all_services'=>$all_services]);
-
 	}
 
 	public function add_service() {
@@ -45,7 +44,7 @@ class Services extends CI_Controller {
 			$data = array_merge($data, $final_array);
 
 			// main service execution
-			$this->sm->add_service($data);
+			$done = $this->sm->add_service($data);
 
 			$this->load->model('paymentsmodel','pyml');
 			$d = $this->input->post('domain_name');
@@ -53,7 +52,12 @@ class Services extends CI_Controller {
 			$p_status = "pending";
 			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n);
 
-			$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
+				if($done)
+				{
+					// main service execution
+					$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
+				}
+
 			} else {
 			$this->load->view('admin/add_domain');
 		}

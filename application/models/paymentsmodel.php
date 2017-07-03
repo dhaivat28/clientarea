@@ -13,6 +13,21 @@ class Paymentsmodel extends CI_Model {
 
 	}
 
+	public function all_payments()
+	{
+		$query= $this->db
+							->select('admin_id')
+							->select('added_on')
+							->select('service_id')
+							->select('tr_id')
+							->select('tr_date')
+							->select('amount')
+							->select('p_status')
+							->from('payments')
+							->get();
+		return $query->result();
+	}
+
 	public function add_payment($data)
 	{
 		return $status = $this->db->insert('payments',$data);

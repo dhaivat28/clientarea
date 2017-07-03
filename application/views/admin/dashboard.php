@@ -7,7 +7,7 @@
 			<li><?= anchor("dashboard",'Dashboard',['id'=>'active']); ?></li>
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
 			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
-			<li><?= anchor("payments/add_payment",'Add Payments'); ?></li>
+			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
 		</ul>
 	</div><!--/.sidebar-->
 
