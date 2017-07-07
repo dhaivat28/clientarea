@@ -16,6 +16,16 @@ class Productsmodel extends CI_Model {
 		return $query->result();
 	}
 
+	public function p_dropdown()
+	{
+		$query= $this->db
+							->select('product_id')
+							->select('product_name')
+							->from('products')
+							->get();
+		return $query->result_array();
+	}
+
 	public function add_product($data)
 	{
 		return $status = $this->db->insert('products',$data);

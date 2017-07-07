@@ -25,7 +25,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								Add Domain & Hosting
+								Add Service
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
@@ -42,7 +42,7 @@
 
 								<div class="form-group">
 									<div class="row">
-										<div class="col-lg-6">
+										<div class="col-lg-10">
 											<label>Select Client : </label>
 											<select name="client_id" >
     											<?php
@@ -56,7 +56,7 @@
 											</select>
 										</div>
 
-										<div class="col-lg-6">
+										<div class="col-lg-2">
 											<div class="form-error-custom">
 												<?php echo form_error('client_id'); ?>
 											</div>
@@ -67,8 +67,8 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Domain</label>
-												<?php echo form_input(['name'=>'domain_name','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain Name','value'=>set_value('domain_name')]); ?>
+											<label>Service Name</label>
+												<?php echo form_input(['name'=>'domain_name','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain / Service name','value'=>set_value('domain_name')]); ?>
 										</div>
 
 										<div class="col-lg-6">
@@ -83,7 +83,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Domain Registration Date</label>
+											<label>Registration Date</label>
 												<?php echo form_input(['name'=>'p_date','type'=>'date','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Purchase Date','value'=>set_value('p_date')]); ?>
 										</div>
 
@@ -98,20 +98,23 @@
 
 								<div class="form-group">
 									<div class="row">
-										<div class="col-lg-6">
-												<label>Select Service:</label><br />
-												<?php echo form_radio('service_type', '1', TRUE);?>
-												<?php echo form_label('Domain Only', 'service');?><br />
-
-												<?php echo form_radio('service_type', '2', FALSE); ?>
-												<?php echo form_label('Hosting Only', 'service');?><br />
-
-												<?php echo form_radio('service_type', '3', FALSE); ?>
-												<?php echo form_label('Domain + Hosting ', 'service');?>
+										<div class="col-lg-10">
+											<label>Select Service : </label>
+											<select name="client_id" >
+												<?php
+												foreach($p_dropdown as $dlist)
+												{
+												?>
+												<option value="<?=$dlist['product_id']?>"><?=$dlist['product_name']?></option>
+												<?php
+												}
+												?>
+											</select>
 										</div>
-										<div class="col-lg-6">
+
+										<div class="col-lg-2">
 											<div class="form-error-custom">
-												<?php echo form_error('service_type'); ?>
+												<?php echo form_error('client_id'); ?>
 											</div>
 										</div>
 									</div>
@@ -139,21 +142,7 @@
 									</div>
 								</div>
 
-								<div class="form-group">
-									<div class="row">
-										<div class="col-lg-6">
-											<label>Service Charges</label>
-												<?php echo form_input(['name'=>'service_charges','type'=>'text','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Enter Service Charges','value'=>set_value('service_charges')]); ?>
-										</div>
 
-										<div class="col-lg-6">
-											<div class="form-error-custom">
-												<?php echo form_error('service_charges'); ?>
-											</div>
-										</div>
-									</div>
-
-								</div>
 	<br />
 								<div class="row">
 									<div class="col-lg-3">

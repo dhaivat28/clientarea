@@ -19,8 +19,10 @@ class Services extends CI_Controller {
 	public function add_service() {
 		$this->load->helper('form');
 		$this->load->model('servicesmodel','sm');
+		$this->load->model('productsmodel','prs');
 		$dropdown_list = $this->sm->dropdown_list();
-		$this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list]);
+		$p_dropdown = $this->prs->p_dropdown();
+		$this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list,'p_dropdown'=>$p_dropdown]);
 	}
 
 	public function store_service()
