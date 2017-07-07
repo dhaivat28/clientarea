@@ -50,6 +50,26 @@ $config = [
 
 								],
 
+		'add_product'	=> [
+									[
+										'field'=>'product_name',
+										'label'=>'product_name',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'product_mrp',
+										'label'=>'product_mrp',
+										'rules'=>'required|trim|numeric'
+									],
+
+									[
+										'field'=>'profit',
+										'label'=>'profit',
+										'rules'=>'required|trim|numeric'
+									]
+
+								],
+
 		'add_client'	=> [
 									[
 										'field'=>'cname',
