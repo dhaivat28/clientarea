@@ -42,13 +42,9 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								Manage Services
+								Payments
 							</div>
-							<div class="col-lg-9">
-								<div class="button-box">
-											<?=anchor("payments/add_payment",'Add Service',['class'=>'btn btn-primary']); ?>
-								</div>
-							</div>
+
 						</div>
 
 					</div>
@@ -77,7 +73,7 @@
 						   	foreach ($all_payments as $k): ?>
 								<tr>
 									<td> <?= ++$count ?></td>
-									
+
 									<td><?= $k->added_by ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->service_id ?></td>
