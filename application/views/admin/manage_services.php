@@ -78,20 +78,15 @@
 									<td> <?= ++$count ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->service_id ?></td>
-									<td><?= $k->domain_name ?></td>
+									<td><?= $k->service_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
 									<td>
-										<?php
-										$key = $k->service_type;
-										if($key==1)	{	echo "Domain Only";	}
-										elseif ($key==2) { echo "Hosting Only"; }
-										else { echo "Domain + Hosting"; }
-										?>
+										
 									</td>
-									<td><?= $k->service_charges ?></td>
+
 									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
 									</td>
 									<td>		<?=anchor("payments/add_payment/{$k->service_id}",' Payment',['class'=>'btn btn-primary']); ?>

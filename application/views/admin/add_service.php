@@ -68,7 +68,7 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<label>Service Name</label>
-												<?php echo form_input(['name'=>'domain_name','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain / Service name','value'=>set_value('domain_name')]); ?>
+												<?php echo form_input(['name'=>'service_name','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Domain / Service name','value'=>set_value('service_name')]); ?>
 										</div>
 
 										<div class="col-lg-6">
@@ -100,7 +100,7 @@
 									<div class="row">
 										<div class="col-lg-10">
 											<label>Select Service : </label>
-											<select name="client_id" >
+											<select name="product_id" >
 												<?php
 												foreach($p_dropdown as $dlist)
 												{

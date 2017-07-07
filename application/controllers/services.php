@@ -48,25 +48,21 @@ class Services extends CI_Controller {
 			// main service execution
 			$done = $this->sm->add_service($data);
 
-			$this->load->model('paymentsmodel','pyml');
-
-			$d = $this->input->post('domain_name');
-			$s_id = $this->pyml->get_s_id($d);
-			$p_status = "No Patments yet";
-
-			$service_charges = $this->input->post('service_charges');
-
-			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges);
-
-				if($done)
-				{
-					// main service execution
-					$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
-				}
-
-			} else {
-			$this->load->view('admin/add_domain');
-		}
+			// payment
+			// $this->load->model('paymentsmodel','pyml');
+			// $d = $this->input->post('service_name');
+			// $s_id = $this->pyml->get_s_id($d);
+			// $p_status = "No Patments yet";
+			// $payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges);
+			// 	if($done)
+			// 	{
+			// 		// payment execution
+			// 		$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
+			// 	}
+			}
+			else {
+			$this->load->view('admin/add_service');
+			}
 	}
 
 	public function delete_service($service_id) {

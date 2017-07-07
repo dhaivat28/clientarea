@@ -23,8 +23,8 @@ $config = [
 										'rules'=>'required|trim'
 									],
 									[
-										'field'=>'domain_name',
-										'label'=>'domain_name',
+										'field'=>'service_name',
+										'label'=>'service_name',
 										'rules'=>'required|trim'
 									],
 									[
@@ -32,14 +32,10 @@ $config = [
 										'label'=>'p_date',
 										'rules'=>'required|trim'
 									],
+
 									[
-										'field'=>'service_type',
-										'label'=>'service_type',
-										'rules'=>'required|trim'
-									],
-									[
-										'field'=>'service_charges',
-										'label'=>'service_charges',
+										'field'=>'product_id',
+										'label'=>'product_id',
 										'rules'=>'required|trim'
 									],
 									[
