@@ -31,6 +31,7 @@ class Servicesmodel extends CI_Model {
 		$a_id = $this->session->userdata('admin_id');
 		$query= $this->db
 							->select('added_on')
+							->select('added_by')
 							->select('service_id')
 							->select('service_name')
 							->select('client_id')
@@ -43,6 +44,16 @@ class Servicesmodel extends CI_Model {
 							->where('admin_id',$a_id)
 							->get();
 		return $query->result();
+	}
+
+	public function get_admin_name($admin_id)
+	{
+		$query= $this->db
+							->select('admin_name')
+							->from('admin')
+							->where('admin_id',$admin_id)
+							->get();
+		return $query->row()->admin_name;
 	}
 
 	public function delete_service($service_id) {

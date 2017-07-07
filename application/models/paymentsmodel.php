@@ -7,16 +7,16 @@ class Paymentsmodel extends CI_Model {
 		$query= $this->db
 							->select('service_id')
 							->from('services')
-							->where('domain_name',$d)
+							->where('service_name',$d)
 							->get();
 		return $query->row()->service_id;
-
 	}
 
 	public function all_payments()
 	{
 		$query= $this->db
 							->select('admin_id')
+							->select('added_by')
 							->select('added_on')
 							->select('service_id')
 							->select('tr_id')
@@ -33,6 +33,15 @@ class Paymentsmodel extends CI_Model {
 	public function add_payment($data)
 	{
 		return $status = $this->db->insert('payments',$data);
+	}
+
+	public function calculate_charges($p_id) {
+		$query= $this->db
+							->select('product_mrp')
+							->from('products')
+							->where('product_id',$p_id)
+							->get();
+		return $query->row()->product_mrp;
 	}
 
 }

@@ -58,14 +58,15 @@
 						    <tr>
 						        <th>Sr No.</th>
 								  <th>Added On</th>
+								  <th>Added By</th>
 								  <th>Service Id</th>
 								  <th>Domain Name</th>
 						        <th>Client Name</th>
 						        <th>Domain Reg. Date</th>
 								  <th>Years</th>
 						        <th>Domain Exp. Date</th>
-							    <th>Service_type</th>
-								 <th>Service_Charges</th>
+							    <th>Products</th>
+
 						    </tr>
 						    </thead>
 							 <tbody>
@@ -77,15 +78,15 @@
 								<tr>
 									<td> <?= ++$count ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
+									<td><?= $k->added_by ?></td>
 									<td><?= $k->service_id ?></td>
 									<td><?= $k->service_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-									<td>
-										
-									</td>
+										<td><?= $k->product_id ?></td>
+
 
 									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
 									</td>

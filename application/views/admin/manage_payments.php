@@ -57,7 +57,7 @@
 						    <thead>
 						    <tr>
 						        <th>Sr No.</th>
-								  <th>Admin Id</th>
+								  <th>Added By</th>
 								  <th>Added On</th>
 								  <th>Service Id</th>
 								  <th>Transaction Id</th>
@@ -77,11 +77,12 @@
 						   	foreach ($all_payments as $k): ?>
 								<tr>
 									<td> <?= ++$count ?></td>
-									<td><?= $k->admin_id ?></td>
+									
+									<td><?= $k->added_by ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->service_id ?></td>
 									<td><?= $k->tr_id ?></td>
-									<td><?= date("d-m-Y", strtotime($k->tr_date));?></td>
+									<td><?= $k->tr_date?></td>
 									<td><?= $k->service_charges ?></td>
 									<td><?= $k->amount_paid ?></td>
 									<td><?= $k->p_status ?></td>

@@ -29,11 +29,16 @@ class Services extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+
 		if($this->form_validation->run('add_service')){
+			$this->load->model('servicesmodel','sm');
+
+			$admin_id = $this->input->post('admin_id');
+			$admin_name = $this->sm->get_admin_name($admin_id);
+
 			$data = $this->input->post();
 			$payment_data = $this->input->post();
 			unset($data['submit']);
-			$this->load->model('servicesmodel','sm');
 			$c_id = $this->input->post('client_id');
 			$client_name= $this->sm->get_c_name($c_id);
 			$p_date = $this->input->post('p_date');
@@ -42,26 +47,32 @@ class Services extends CI_Controller {
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
-			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n);
+			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name);
 			$data = array_merge($data, $final_array);
-
 			// main service execution
 			$done = $this->sm->add_service($data);
 
+			// billing module
+			$p_id = $this->input->post('product_id');
+			$this->load->model('paymentsmodel','pyml');
+			$service_charges = $this->pyml->calculate_charges($p_id);
+
 			// payment
-			// $this->load->model('paymentsmodel','pyml');
-			// $d = $this->input->post('service_name');
-			// $s_id = $this->pyml->get_s_id($d);
-			// $p_status = "No Patments yet";
-			// $payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges);
-			// 	if($done)
-			// 	{
-			// 		// payment execution
-			// 		$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
-			// 	}
+			
+			$this->load->model('paymentsmodel','pyml');
+			$d = $this->input->post('service_name');
+			$s_id = $this->pyml->get_s_id($d);
+			$p_status = "no payments yet";
+			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges);
+
+				if($done)
+				{
+					// payment execution
+					$this->_flashandredirect($this->pyml->add_payment($payment_array),"Added","Add");
+				}
 			}
 			else {
-			$this->load->view('admin/add_service');
+				return redirect('services/add_service');
 			}
 	}
 
