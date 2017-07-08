@@ -96,7 +96,22 @@
 									<td><?= $k->tr_date ?></td>
 									<td><?= $k->service_charges ?></td>
 									<td><?= $k->amount_paid ?></td>
-									<td><?= $k->p_status ?></td>
+										<?php
+											$s = $k->p_status;
+											if($s=="no payments yet")
+											{ $c = "red-py"; }
+											elseif ($s=="partial")
+											{ $c = "blue-py"; }
+											else
+											{ $c = "green-py"; }
+										?>
+
+									<td>
+										<div class="<?= $c ?>">
+											<?php echo $s ?>
+										</div>
+									</td>
+
 									<td><?= $k->p_method ?></td>
 									<td><?= $k->amount_left ?></td>
 									<td>		<?=anchor("payments/add_payment/{$k->service_id}",'Pay',['class'=>'btn btn-success	']); ?>

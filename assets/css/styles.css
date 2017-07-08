@@ -26,6 +26,21 @@ color: white;
 	text-align: right;
 }
 
+.red-py {
+	color:red;
+	font-weight: bold;
+}
+
+.blue-py {
+	color:blue;
+	font-weight: bold;
+}
+
+.green-py {
+	color:green;
+	font-weight: bold;
+}
+
 .domain-table {
  border-collapse: collapse;
  width: 100%;
