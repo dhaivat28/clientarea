@@ -46,17 +46,19 @@ class Paymentsmodel extends CI_Model {
 	}
 
 	public function get_details($service_id) {
-		$query= $this->db
-							->select('added_on')
-							->select('service_charges')
-							->select('added_on')
-							->select('added_on')
-							->select('added_on')
-							->select('added_on')
-							->from('services')
-							->where('service_name',$d)
-							->get();
-		return $query->result();
+
+		$query = $this->db
+							->select(['added_on','service_charges','service_id','amount_left'])
+							->where('service_id',$service_id)
+							->get('payments');
+		return $query->row();
+	}
+
+	public function update_payment($service_id,Array $data)
+	{
+		return $this->db
+					->where('service_id',$service_id)
+					->update('payments',$data);
 	}
 
 }

@@ -16,6 +16,21 @@ $config = [
 									]
 								],
 
+		'add_payment'	=> [
+									[
+										'field'=>'amount_pay',
+										'label'=>'amount_pay',
+										'rules'=>'required|trim|greater_than[0]'
+									],
+
+									[
+										'field'=>'p_method',
+										'label'=>'p_method',
+										'rules'=>'required|trim'
+									]
+								],
+
+
 		'add_service'	=> [
 									[
 										'field'=>'client_id',

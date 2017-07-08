@@ -35,6 +35,24 @@
 			<?php endif; ?>
 	</div>
 </div>
+
+<div class="row">
+	<div class="col-lg-12">
+		<?php if($feedback = $this->session->flashdata('incorrect_amount')):
+			$feedback_class = $this->session->flashdata('i_class'); ?>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-dismissible <?= $feedback_class ?>">
+					  <button type="button" class="close" data-dismiss="alert">&times;</button>
+					  <strong><?= $feedback ?></strong>
+					</div>
+				</div>
+			</div>
+			<?php endif; ?>
+	</div>
+</div>
+
 <br />
 		<div class="row">
 			<div class="col-lg-12">
@@ -79,7 +97,7 @@
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->service_id ?></td>
 									<td><?= $k->tr_id ?></td>
-									<td><?= $k->tr_date?></td>
+									<td><?= date("d - M - Y h:ia",  strtotime($k->tr_date));?></td>
 									<td><?= $k->service_charges ?></td>
 									<td><?= $k->amount_paid ?></td>
 									<td><?= $k->p_status ?></td>
