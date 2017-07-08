@@ -26,13 +26,18 @@ color: white;
 	text-align: right;
 }
 
+.blue-service {
+	color:blue;
+	font-weight: bold;
+}
+
 .red-py {
 	color:red;
 	font-weight: bold;
 }
 
-.blue-py {
-	color:blue;
+.gold-py {
+	color:#ffb53e;
 	font-weight: bold;
 }
 

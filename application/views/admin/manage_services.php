@@ -79,7 +79,11 @@
 									<td> <?= ++$count ?></td>
 									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->added_by ?></td>
-									<td><?= $k->service_id ?></td>
+									<td>
+										<div class="blue-service">
+											<?= $k->service_id ?>
+										</div>
+									</td>
 									<td><?= $k->service_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
@@ -88,10 +92,9 @@
 										<td><?= $k->product_id ?></td>
 
 
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
+									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
 									</td>
-									<td>		<?=anchor("payments/add_payment/{$k->service_id}",' Payment',['class'=>'btn btn-primary']); ?>
-									</td>
+
 											</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>

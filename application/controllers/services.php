@@ -42,12 +42,16 @@ class Services extends CI_Controller {
 			$c_id = $this->input->post('client_id');
 			$client_name= $this->sm->get_c_name($c_id);
 			$p_date = $this->input->post('p_date');
+
+			$r_id = mt_rand() * time();
+			$service_id = substr($r_id, 0, 9);
+
 			$length = $this->input->post('years');
 			$expiry_date = date('Y-m-d', strtotime($length, strtotime($p_date)));
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
-			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name);
+			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id);
 			$data = array_merge($data, $final_array);
 			// main service execution
 			$done = $this->sm->add_service($data);

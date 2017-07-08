@@ -91,7 +91,11 @@
 						   	foreach ($all_payments as $k): ?>
 								<tr>
 									<td><?= $k->added_by ?></td>
-									<td><?= $k->service_id ?></td>
+									<td>
+										<div class="blue-service">
+											<?= $k->service_id ?>
+										</div>
+									</td>
 									<td><?= $k->tr_id ?></td>
 									<td><?= $k->tr_date ?></td>
 									<td><?= $k->service_charges ?></td>
@@ -101,7 +105,7 @@
 											if($s=="no payments yet")
 											{ $c = "red-py"; }
 											elseif ($s=="partial")
-											{ $c = "blue-py"; }
+											{ $c = "gold-py"; }
 											else
 											{ $c = "green-py"; }
 										?>
