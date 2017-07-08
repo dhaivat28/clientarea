@@ -36,19 +36,19 @@
 					</div>
 					<div class="panel-body">
 						<div class="col-md-6">
-							<?php echo form_open('client/storeclient'); ?>
+							<?php echo form_open('payments/update_payment'); ?>
 							<?php echo form_hidden('admin_id',$this->session->userdata('admin_id')) ?>
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Full Name</label>
-												<?php echo form_input(['name'=>'cname','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Full name','value'=>set_value('cname')]); ?>
+											<label>Amount</label>
+												<?php echo form_input(['name'=>'amount','id'=>'inputEmail','class'=>'form-control','placeholder'=>'amount','value'=>set_value('amount')]); ?>
 										</div>
 
 										<div class="col-lg-6">
 										</div>
 										<div class="form-error-custom">
-											<?php echo form_error('cname'); ?>
+											<?php echo form_error('amount'); ?>
 										</div>
 									</div>
 
@@ -57,40 +57,24 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-											<label>Email:</label>
-											<?php echo form_input(['name'=>'email','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Email','value'=>set_value('email')]); ?>
+											<label>Payment Method : </label>
+												<select name="payment_method">
+												  <option value="cash">cash</option>
+												  <option value="cheque">cheque</option>
+												  <option value="other">other</option>
+
+												</select>
+
 										</div>
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('email'); ?>
+												<?php echo form_error('payment_method'); ?>
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="form-group">
-									<div class="row">
-										<div class="col-lg-6">
-												<label>Mobile:</label>
-												<?php echo form_input(['name'=>'mobile','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Mobile No','value'=>set_value('mobile')]); ?>
-										</div>
-										<div class="col-lg-6">
-											<div class="form-error-custom">
-												<?php echo form_error('mobile'); ?>
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="form-group">
-									<div class="row">
-										<div class="col-lg-6">
-											<label>Remarks:</label>
-											<?php $options = array('name' => 'remarks','rows' => '3','cols' => '50','value'=>set_value('remarks'));
-												echo form_textarea($options);?>
-										</div>
-									</div>
-								</div>
 
 								<div class="row">
 									<div class="col-lg-4">

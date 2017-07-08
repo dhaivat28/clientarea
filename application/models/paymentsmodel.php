@@ -25,6 +25,7 @@ class Paymentsmodel extends CI_Model {
 							->select('amount_paid')
 							->select('p_status')
 							->select('p_method')
+							->select('amount_left')
 							->from('payments')
 							->get();
 		return $query->result();
@@ -42,6 +43,20 @@ class Paymentsmodel extends CI_Model {
 							->where('product_id',$p_id)
 							->get();
 		return $query->row()->product_mrp;
+	}
+
+	public function get_details($service_id) {
+		$query= $this->db
+							->select('added_on')
+							->select('service_charges')
+							->select('added_on')
+							->select('added_on')
+							->select('added_on')
+							->select('added_on')
+							->from('services')
+							->where('service_name',$d)
+							->get();
+		return $query->result();
 	}
 
 }

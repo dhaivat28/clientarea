@@ -19,6 +19,7 @@ class Payments extends CI_Controller {
 	public function add_payment($service_id) {
 		$this->load->helper('form');
 		$this->load->model('paymentsmodel','sm');
+		$tr_details = $this->pyml->get_details($service_id);
 		$this->load->view('admin/add_payment');
 	}
 

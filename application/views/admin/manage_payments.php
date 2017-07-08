@@ -62,6 +62,7 @@
 						        <th>Amount Paid</th>
 								  <th>Payment Status</th>
 								  <th>Payment method</th>
+								  <th>Amount Left</th>
 
 						    </tr>
 						    </thead>
@@ -83,7 +84,8 @@
 									<td><?= $k->amount_paid ?></td>
 									<td><?= $k->p_status ?></td>
 									<td><?= $k->p_method ?></td>
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Update',['class'=>'btn btn-danger']); ?>
+									<td><?= $k->amount_left ?></td>
+									<td>		<?=anchor("payments/add_payment/{$k->service_id}",'Pay',['class'=>'btn btn-success	']); ?>
 									</td>
 								</tr>
 						   <?php endforeach; ?>
