@@ -70,9 +70,8 @@
 						<table class="domain-table">
 						    <thead>
 						    <tr>
-						        <th>Sr No.</th>
+
 								  <th>Added By</th>
-								  <th>Added On</th>
 								  <th>Service Id</th>
 								  <th>Transaction Id</th>
 						        <th>Transaction Date</th>
@@ -91,13 +90,10 @@
 					 			if( count($all_payments)):
 						   	foreach ($all_payments as $k): ?>
 								<tr>
-									<td> <?= ++$count ?></td>
-
 									<td><?= $k->added_by ?></td>
-									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
 									<td><?= $k->service_id ?></td>
 									<td><?= $k->tr_id ?></td>
-									<td><?= date("d - M - Y h:ia",  strtotime($k->tr_date));?></td>
+									<td><?= $k->tr_date ?></td>
 									<td><?= $k->service_charges ?></td>
 									<td><?= $k->amount_paid ?></td>
 									<td><?= $k->p_status ?></td>

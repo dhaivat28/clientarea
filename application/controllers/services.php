@@ -58,12 +58,11 @@ class Services extends CI_Controller {
 			$service_charges = $this->pyml->calculate_charges($p_id);
 
 			// payment
-
 			$this->load->model('paymentsmodel','pyml');
 			$d = $this->input->post('service_name');
 			$s_id = $this->pyml->get_s_id($d);
 			$p_status = "no payments yet";
-			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'added_on' => $n,'service_charges'=>$service_charges,'amount_left'=>$service_charges);
+			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges);
 
 				if($done)
 				{

@@ -43,7 +43,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<label>Last Update: </label>
-												<?= $tr_details->added_on ?>
+												<?= $tr_details->tr_date ?>
 									</div>
 								</div>
 							</div>
