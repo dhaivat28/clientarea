@@ -41,10 +41,17 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-3">
+							<div class="col-lg-8">
 								Manage Services
 							</div>
-							<div class="col-lg-9">
+
+							<div class="col-lg-2">
+								<div class="button-box">
+											<?=anchor("payments/manage_payments",'Payments',['class'=>'btn btn-primary']); ?>
+								</div>
+							</div>
+
+							<div class="col-lg-2">
 								<div class="button-box">
 											<?=anchor("services/add_service",'Add Service',['class'=>'btn btn-primary']); ?>
 								</div>

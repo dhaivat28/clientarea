@@ -41,15 +41,14 @@ class Payments extends CI_Controller {
 			$tr_date = $now->format('Y-m-d H:i:s');
 			$tr_id = mt_rand()*time();
 			$amount_pay = $this->input->post('amount_pay');
+			$raw_pay = $this->input->post('amount_pay');
 			$amount_left = $this->input->post('amount_left');
 			unset($data['amount_pay']);
 
 			if($amount_pay<=$amount_left)
 			{
 
-
 				$final = $amount_left-$amount_pay;
-				echo "final is " .$final;
 				if($final==0)
 				{
 					$p_status = "done";
@@ -64,17 +63,34 @@ class Payments extends CI_Controller {
 				$pay_array= array(
 					'admin_id' => $admin_id,
 					'added_by' => $admin_name,
-					'tr_id' =>$tr_id,
-					'tr_date'=>$tr_date,
-					'p_status'=>$p_status,
-					'amount_left'=>$final,
-					'amount_paid'=>$amount_pay);
+					'tr_id' => $tr_id,
+					'tr_date'=> $tr_date,
+					'p_status'=> $p_status,
+					'amount_left'=> $final,
+					'amount_paid'=> $amount_pay);
 
 				$data = array_merge($data, $pay_array);
 
 				// print_r($data); exit;
 
-				$this->_flashandredirect($this->pyml->update_payment($service_id,$data),"paid","paid");
+				$main_payemnt = $this->pyml->update_payment($service_id,$data);
+
+				$p_method = $this->input->post('p_method');
+				$log_array= array(
+					'admin_id' => $admin_id,
+					'added_by' => $admin_name,
+					'tr_id' => $tr_id,
+					'tr_date'=> $tr_date,
+					'service_id'=> $service_id,
+					'p_method'=> $p_method,
+					'amount_left'=> $final,
+					'amount_paid'=> $raw_pay);
+
+					if($main_payemnt)
+					{
+						$this->_flashandredirect($this->pyml->payment_log($log_array),"paid","paid");
+					}
+
 			}	else {
 
 				$this->session->set_flashdata('incorrect_amount','payment amount cannot be greater than the amount left to pay');

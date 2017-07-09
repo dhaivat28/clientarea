@@ -35,6 +35,11 @@ class Paymentsmodel extends CI_Model {
 		return $status = $this->db->insert('payments',$data);
 	}
 
+	public function payment_log($log_array)
+	{
+		return $status = $this->db->insert('payments_log',$log_array);
+	}
+
 	public function calculate_charges($p_id) {
 		$query= $this->db
 							->select('product_mrp')
