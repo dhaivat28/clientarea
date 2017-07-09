@@ -19,48 +19,39 @@
 			</ol>
 		</div><!--/.row-->
 <br />
-<div class="row">
-	<div class="col-lg-12">
-		<?php if($feedback = $this->session->flashdata('feedback')):
-			$feedback_class = $this->session->flashdata('feedback_class'); ?>
-
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="alert alert-dismissible <?= $feedback_class ?>">
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong><?= $feedback ?></strong>
-					</div>
-				</div>
-			</div>
-			<?php endif; ?>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-12">
-		<?php if($feedback = $this->session->flashdata('incorrect_amount')):
-			$feedback_class = $this->session->flashdata('i_class'); ?>
-
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="alert alert-dismissible <?= $feedback_class ?>">
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong><?= $feedback ?></strong>
-					</div>
-				</div>
-			</div>
-			<?php endif; ?>
-	</div>
-</div>
 
 <br />
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-3">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								Service Information
+							</div>
+							<div class="panel-body">
+
+										<?php foreach ($service_details as $key): ?>
+											<b>Service Id : </b>  <?= $key->service_id ?>
+											 	<br /><br />
+											<b>Client Name : </b> <?= $key->client_name ?>
+												<br /><br />
+											<b>Service Name : </b><?= $key->service_name ?>
+												<br /><br />
+											<b>Start Date : </b><?= $key->p_date ?>
+												<br /><br />
+											<b>For : </b> <?= $key->years ?>
+												<br /><br />
+											<b>End Date : </b> <?= $key->expiry_date ?>
+										<?php endforeach; ?>
+
+							</div>
+						</div>
+					</div>
+			<div class="col-lg-9">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								Payments
+								Payment Log
 							</div>
 
 						</div>

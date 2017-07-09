@@ -41,7 +41,6 @@ class Servicesmodel extends CI_Model {
 							->select('years')
 							->select('expiry_date')
 							->from('services')
-							->where('admin_id',$a_id)
 							->get();
 		return $query->result();
 	}
@@ -61,6 +60,25 @@ class Servicesmodel extends CI_Model {
 		return $query;
 	}
 
+	public function all_services_fromid($service_id)
+	{
+
+		$query= $this->db
+							->select('added_on')
+							->select('added_by')
+							->select('service_id')
+							->select('service_name')
+							->select('client_id')
+							->select('client_name')
+							->select('p_date')
+							->select('product_id')
+							->select('years')
+							->select('expiry_date')
+							->from('services')
+							->where('service_id',$service_id)
+							->get();
+		return $query->result();
+	}
 
 
 }
