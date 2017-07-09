@@ -47,7 +47,7 @@ class Paymentsmodel extends CI_Model {
 	public function get_details($service_id) {
 
 		$query = $this->db
-							->select(['tr_date','service_charges','service_id','amount_left'])
+							->select(['tr_date','service_charges','service_id','amount_left','amount_paid'])
 							->where('service_id',$service_id)
 							->get('payments');
 		return $query->row();

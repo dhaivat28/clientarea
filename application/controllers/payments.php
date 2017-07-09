@@ -46,6 +46,8 @@ class Payments extends CI_Controller {
 
 			if($amount_pay<=$amount_left)
 			{
+
+
 				$final = $amount_left-$amount_pay;
 				echo "final is " .$final;
 				if($final==0)
@@ -55,6 +57,9 @@ class Payments extends CI_Controller {
 					$p_status = "partial";
 				}
 
+				$am_bl = $this->input->post('amount_balance');
+				$amount_pay = $amount_pay + $am_bl;
+				unset($data['amount_balance']);
 
 				$pay_array= array(
 					'admin_id' => $admin_id,

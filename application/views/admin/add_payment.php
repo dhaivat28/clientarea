@@ -55,6 +55,19 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+										<label>Paid : </label>
+												<?= $tr_details->amount_paid ?>
+												<?php echo form_hidden('amount_balance',$tr_details->amount_paid)?>
+									</div>
+
+								</div>
+							</div>
+
+
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
