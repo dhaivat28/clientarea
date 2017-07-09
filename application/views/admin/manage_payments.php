@@ -124,7 +124,7 @@
 						   <?php endforeach; ?>
 				   	<?php else: ?>
 					   <tr>
-						   <td colspan="7">No Records Found</td>
+						   <td colspan="9">No Records Found</td>
 					   </tr>
 				   <?php endif; ?>
 

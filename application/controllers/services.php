@@ -56,6 +56,7 @@ class Services extends CI_Controller {
 			// main service execution
 			$done = $this->sm->add_service($data);
 
+
 			// billing module
 			$p_id = $this->input->post('product_id');
 			$this->load->model('paymentsmodel','pyml');
@@ -64,9 +65,8 @@ class Services extends CI_Controller {
 			// payment
 			$this->load->model('paymentsmodel','pyml');
 			$d = $this->input->post('service_name');
-			$s_id = $this->pyml->get_s_id($d);
 			$p_status = "no payments yet";
-			$payment_array= array('service_id' =>$s_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges);
+			$payment_array= array('service_id' =>$service_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges);
 
 				if($done)
 				{

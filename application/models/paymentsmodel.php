@@ -2,16 +2,6 @@
 
 class Paymentsmodel extends CI_Model {
 
-	public function get_s_id($d){
-
-		$query= $this->db
-							->select('service_id')
-							->from('services')
-							->where('service_name',$d)
-							->get();
-		return $query->row()->service_id;
-	}
-
 	public function all_payments()
 	{
 		$query= $this->db
