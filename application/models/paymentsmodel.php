@@ -42,7 +42,14 @@ class Paymentsmodel extends CI_Model {
 	public function get_details($service_id) {
 
 		$query = $this->db
-							->select(['tr_date','service_charges','service_id','amount_left','amount_paid'])
+							->select('added_by')
+							->select('tr_id')
+							->select('tr_date')
+							->select('service_id')
+							->select('service_charges')
+							->select('amount_left')
+							->select('amount_paid')
+							->select('p_method')
 							->where('service_id',$service_id)
 							->get('payments');
 		return $query->row();
@@ -53,6 +60,21 @@ class Paymentsmodel extends CI_Model {
 		return $this->db
 					->where('service_id',$service_id)
 					->update('payments',$data);
+	}
+
+	public function check_log($service_id)
+	{
+		$query = $this->db
+							->select('added_by')
+							->select('tr_id')
+							->select('tr_date')
+							->select('service_id')
+							->select('amount_left')
+							->select('amount_paid')
+							->select('p_method')
+							->where('service_id',$service_id)
+							->get('payments_log');
+		return $query->result();
 	}
 
 }

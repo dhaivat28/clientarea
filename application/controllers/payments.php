@@ -8,6 +8,14 @@ class Payments extends CI_Controller {
 		$this->load->view('admin/dashboard');
 	}
 
+	public function check_log($service_id)
+	{
+		$this->load->helper('form');
+ 		$this->load->model('paymentsmodel','pyml');
+		$all_transactions = $this->pyml->check_log($service_id);
+		$this->load->view('admin/view_log',['all_transactions'=>$all_transactions]);
+	}
+
 	public function manage_payments()
 	{
 		$this->load->helper('form');

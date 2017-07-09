@@ -72,14 +72,12 @@
 						    <tr>
 
 								  <th>Added By</th>
-								  <th>Service Id</th>
 								  <th>Transaction Id</th>
 						        <th>Transaction Date</th>
-								  <th>Service Charges</th>
-						        <th>Amount Paid</th>
-								  <th>Payment Status</th>
-								  <th>Payment method</th>
+								  <th>Service Id</th>
 								  <th>Amount Left</th>
+								  <th>Amount Paid</th>
+								  <th>Payment method</th>
 
 						    </tr>
 						    </thead>
@@ -87,41 +85,16 @@
 
 								 <?php
 				   	 		$count = 0;
-					 			if( count($all_payments)):
-						   	foreach ($all_payments as $k): ?>
+					 			if( count($all_transactions)):
+						   	foreach ($all_transactions as $k): ?>
 								<tr>
 									<td><?= $k->added_by ?></td>
-									<td>
-										<div class="blue-service">
-											<?= $k->service_id ?>
-										</div>
-									</td>
 									<td><?= $k->tr_id ?></td>
-									<td><?= $k->tr_date ?></td>
-									<td><?= $k->service_charges ?></td>
-									<td><?= $k->amount_paid ?></td>
-										<?php
-											$s = $k->p_status;
-											if($s=="no payments yet")
-											{ $c = "red-py"; }
-											elseif ($s=="partial")
-											{ $c = "gold-py"; }
-											else
-											{ $c = "green-py"; }
-										?>
-
-									<td>
-										<div class="<?= $c ?>">
-											<?php echo $s ?>
-										</div>
-									</td>
-
-									<td><?= $k->p_method ?></td>
+									<td><?= date("d - M - Y h:ia",  strtotime($k->tr_date));?></td>
+									<td><?= $k->service_id ?></td>
 									<td><?= $k->amount_left ?></td>
-									<td>		<?=anchor("payments/add_payment/{$k->service_id}",'Pay',['class'=>'btn btn-success	']); ?>
-									</td>
-									<td>		<?=anchor("payments/check_log/{$k->service_id}",'Log',['class'=>'btn btn-success	']); ?>
-									</td>
+									<td><?= $k->amount_paid ?></td>
+									<td><?= $k->p_method ?></td>
 								</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>
