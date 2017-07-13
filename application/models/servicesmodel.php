@@ -41,6 +41,7 @@ class Servicesmodel extends CI_Model {
 							->select('years')
 							->select('expiry_date')
 							->from('services')
+							->order_by("op_id", "desc")
 							->get();
 		return $query->result();
 	}

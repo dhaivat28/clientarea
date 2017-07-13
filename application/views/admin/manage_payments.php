@@ -122,7 +122,7 @@
 									<td><?= $k->amount_left ?></td>
 									<td>		<?=anchor("payments/add_payment/{$k->service_id}",'Pay',['class'=>'btn btn-success	']); ?>
 									</td>
-									<td>		<?=anchor("payments/check_log/{$k->service_id}",'Log',['class'=>'btn btn-success	']); ?>
+									<td>		<?=anchor("payments/check_log/{$k->service_id}",'Log',['class'=>'btn btn-primary']); ?>
 									</td>
 								</tr>
 						   <?php endforeach; ?>
