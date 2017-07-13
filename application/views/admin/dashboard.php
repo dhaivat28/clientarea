@@ -22,135 +22,162 @@
 		</div><!--/.row-->
 
 		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>New Orders</h4>
-						<div class="easypiechart" id="easypiechart-blue" data-percent="192" ><span class="percent">192</span>
+			<div class="col-md-6">
+				<div class="welcome-box">
+					<div class="row">
+						<div class="col-lg-12">
+							<h7>Welcome to Altec</h7>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="welcome-text-box">
+								<h8>Current Date : <?php echo date("d / m / Y"); ?></h8>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Comments</h4>
-						<div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>New Users</h4>
-						<div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="panel panel-default">
-					<div class="panel-body easypiechart-panel">
-						<h4>Visitors</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span>
-						</div>
-					</div>
-				</div>
-			</div>
+
+			
 		</div><!--/.row-->
 
 		<div class="row">
-			<!-- <div class="col-md-6">
 
-			</div> -->
-
-			<div class="col-md-12">
-
-				<div class="panel panel-blue">
-					<div class="panel-heading dark-overlay"><svg class="glyph stroked clipboard-with-paper"><use xlink:href="#stroked-clipboard-with-paper"></use></svg>To-do List</div>
-					<div class="panel-body">
-						<ul class="todo-list">
-						<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Make a plan for today</label>
+			<div class="col-lg-3">
+				<div class="info-box">
+					<div class="info-box-top">
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="row">
+									<div class="col-lg-12 info-box-blue">
+										<div class="info-box-count">
+											232,25
+										</div>
+									</div>
 								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
+							</div>
+							<div class="col-lg-3 ">
+								<div class="info-img-box med-size">
+									<i class="fa fa-paperclip watermark"></i>
+									</div>
 								</div>
-							</li>
-							<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Update Basecamp</label>
-								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
-								</div>
-							</li>
-							<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Send email to Jane</label>
-								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
-								</div>
-							</li>
-							<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Drink coffee</label>
-								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
-								</div>
-							</li>
-							<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Do some work</label>
-								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
-								</div>
-							</li>
-							<li class="todo-list-item">
-								<div class="checkbox">
-									<input type="checkbox" id="checkbox" />
-									<label for="checkbox">Tidy up workspace</label>
-								</div>
-								<div class="pull-right action-buttons">
-									<a href="#"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg></a>
-									<a href="#" class="flag"><svg class="glyph stroked flag"><use xlink:href="#stroked-flag"></use></svg></a>
-									<a href="#" class="trash"><svg class="glyph stroked trash"><use xlink:href="#stroked-trash"></use></svg></a>
-								</div>
-							</li>
-						</ul>
+						</div>
 					</div>
-					<div class="panel-footer">
-						<div class="input-group">
-							<input id="btn-input" type="text" class="form-control input-md" placeholder="Add new task" />
-							<span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-todo">Add</button>
-							</span>
+					<div class="info-box-bottom info-box-blue-bg">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="info-box-title-1">
+								Total Clients
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
+			</div>
 
-			</div><!--/.col-->
-		</div><!--/.row-->
+			<div class="col-lg-3">
+				<div class="info-box">
+					<div class="info-box-top">
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="row">
+									<div class="col-lg-12 info-box-red">
+										<div class="info-box-count">
+											232,25
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 ">
+								<div class="info-img-box med-size">
+									<i class="fa fa-ban watermark"></i>
+									</div>
+								</div>
+						</div>
+					</div>
+					<div class="info-box-bottom info-box-red-bg">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="info-box-title-1">
+								Total Clients
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="info-box">
+					<div class="info-box-top">
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="row">
+									<div class="col-lg-12 info-box-green">
+										<div class="info-box-count">
+											232,25
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 ">
+								<div class="info-img-box med-size">
+									<i class="fa fa-unlock-alt watermark"></i>
+									</div>
+								</div>
+						</div>
+					</div>
+					<div class="info-box-bottom info-box-green-bg">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="info-box-title-1">
+								Total Clients
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="info-box">
+					<div class="info-box-top">
+						<div class="row">
+							<div class="col-lg-9">
+								<div class="row">
+									<div class="col-lg-12 info-box-yellow">
+										<div class="info-box-count">
+											232,25
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 ">
+								<div class="info-img-box med-size">
+									<i class="fa fa-file-text-o watermark"></i>
+									</div>
+								</div>
+						</div>
+					</div>
+					<div class="info-box-bottom info-box-yellow-bg">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="info-box-title-1">
+								Total Clients
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
 	</div>	<!--/.main-->
 
 <?php include('admin_footer.php') ?>

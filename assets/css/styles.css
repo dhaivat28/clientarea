@@ -15,8 +15,138 @@ body {
 
 @font-face {
     font-family: 'raleway';
-    src:url(assets/fonts/Raleway-Regular.ttf);
+    src:url(../fonts/rf.ttf);
+}
+
+@font-face {
+    font-family: 'raleway-semibold';
+    src:url(../fonts/Raleway-SemiBold.ttf);
 	font-weight: bold;
+}
+
+
+
+.welcome-box {
+	background: #fff;
+	webkit-box-shadow: 0 1px 2px #ccc;
+	box-shadow: 0 1px 2px #ccc;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	padding: 15px 20px 15px 15px;
+	height: autp;
+	}
+
+.welcome-text-box {
+	margin-top: 10px;
+}
+
+.info-box{
+	background: #fff;
+	margin-left: 10px;
+	webkit-box-shadow: 0 1px 2px #ccc;
+	box-shadow: 0 1px 2px #ccc;
+}
+
+.info-box-top {
+	height: auto;
+	padding: 15px 20px 15px 15px;
+}
+
+.info-box-bottom {
+	height: 40px;
+	padding: 10px 20px 10px;
+}
+
+.info-box-blue {
+	color: #188ae2 !important;
+	font-size: 20px;
+	font-weight: 500;
+}
+.info-box-blue-bg {
+	background: #188ae2;
+}
+
+.info-box-red {
+	color: #ff5b5b !important;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.info-box-red-bg {
+	background: #ff5b5b;
+}
+
+.info-box-green {
+	color: #10c469 !important;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.info-box-green-bg {
+	background: #10c469;
+}
+
+.info-box-yellow {
+	color: #f9c851 !important;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.info-box-yellow-bg {
+	background: #f9c851;
+}
+
+
+.info-box-count {
+	margin-top: 15px;
+}
+
+.info-box-title {
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #6a6c6f;
+	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.info-box-title-1 {
+	color: #fff;
+}
+
+.info-img-box {
+margin-top: 10px;
+}
+
+.med-size {
+	font-size: 32px;
+}
+
+.watermark{
+color: #edf0f5;
+}
+
+.watermark-1{
+color:white;
+}
+
+h7 {
+	font-size: 20px;
+	margin-bottom: 16px;
+	font-weight: 500;
+	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #333;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+h8 {
+	padding-top: 20px;
+	color: #6a6c6f !important;
+	font-weight: 500;
+	font-size: 13px;
+	font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .main-logo {
@@ -624,7 +754,8 @@ a.bg-danger:hover {
 		overflow-x: hidden;
 		overflow-y: auto;
 		background-color: #fff;
-		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
+		webkit-box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
+    	box-shadow: 2px 0 4px rgba(0, 0, 0, 0.08);
 	}
 	.navbar-header {
 		width: 100%;
