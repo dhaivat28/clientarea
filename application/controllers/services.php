@@ -61,6 +61,9 @@ class Services extends CI_Controller {
 			$p_id = $this->input->post('product_id');
 			$this->load->model('paymentsmodel','pyml');
 			$service_charges = $this->pyml->calculate_charges($p_id);
+			$l = substr($length, 1, 2);
+			$service_charges = $l * $service_charges;
+
 
 			// payment
 			$this->load->model('paymentsmodel','pyml');
