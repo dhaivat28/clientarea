@@ -73,6 +73,7 @@
 
 								  <th>Added By</th>
 								  <th>Service Id</th>
+								  <th>Service Details</th>
 								  <th>Transaction Id</th>
 						        <th>Transaction Date</th>
 								  <th>Service Charges</th>
@@ -96,6 +97,7 @@
 											<?= $k->service_id ?>
 										</div>
 									</td>
+									<td><?= $k->service_details ?></td>
 									<td><?= $k->tr_id ?></td>
 									<td><?= $k->tr_date ?></td>
 									<td><?= $k->service_charges ?></td>

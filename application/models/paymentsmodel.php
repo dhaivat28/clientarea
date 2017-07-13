@@ -8,6 +8,7 @@ class Paymentsmodel extends CI_Model {
 							->select('admin_id')
 							->select('added_by')
 							->select('service_id')
+							->select('service_details')
 							->select('tr_id')
 							->select('tr_date')
 							->select('service_charges')
