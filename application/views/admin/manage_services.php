@@ -33,10 +33,10 @@
 
 		<ul class="nav menu">
 			<!-- <li role="presentation" class="divider"></li> -->
-			<li><?= anchor("dashboard",'Dashboard',['id'=>'active']); ?></li>
+			<li><?= anchor("dashboard",'Dashboard'); ?></li>
 			<li><?= anchor("products",'Manage Products'); ?></li>
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
-			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
+			<li><?= anchor("services/manage_services",'Manage Services',['id'=>'active']); ?></li>
 			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
 
 

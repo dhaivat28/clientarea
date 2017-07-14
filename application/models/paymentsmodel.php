@@ -75,7 +75,7 @@ class Paymentsmodel extends CI_Model {
 							->select('amount_paid')
 							->select('p_method')
 							->where('service_id',$service_id)
-							->order_by("op_id", "desc")
+							->order_by("op_id", "aesc")
 							->get('payments_log');
 		return $query->result();
 	}
