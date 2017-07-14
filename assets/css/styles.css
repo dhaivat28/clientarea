@@ -12,6 +12,17 @@ body {
 	overflow-x: hidden;
 }
 
+.profile-pic {
+	border-radius: 50px;
+	height: 50px;
+	width: 50px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
+.profile-name {
+	margin-top: 7px;
+}
 
 @font-face {
     font-family: 'raleway';
@@ -149,8 +160,22 @@ h8 {
 	font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+h9 {
+		font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #333333;
+}
+
+h10 {
+	color: #777777;
+	font-weight: 400;
+	font-family:'Raleway';
+
+}
+
 .main-logo {
-	margin: 10px;
+	margin-bottom: 30px;
+	margin-top:7px;
+	margin-left: 30px;
 }
 
 #active {
