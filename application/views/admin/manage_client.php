@@ -1,12 +1,44 @@
 <?php include('admin_header.php') ?>
 
+
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<img src="<?php echo base_url('assets/images/logo.png'); ?>" class="main-logo" width="200"  alt=""/>
+		<div class="row">
+			<div class="col-lg-12">
+				<img src="<?php echo base_url('assets/images/logo.png'); ?>" class="main-logo" width="160"  alt=""/>
+			</div>
+
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-4">
+						<img src="<?php echo base_url('assets/images/admin.jpg'); ?>" class="profile-pic" width="160"  alt=""/>
+					</div>
+
+					<div class="col-lg-8">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="profile-name">
+									<h9>John Doe</h9>
+								</div>
+							</div>
+							<div class="col-lg-12">
+								<h10>Admin</h10>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 
 		<ul class="nav menu">
-			<li role="presentation" class="divider"></li>
-			<li><?= anchor("dashboard",'Dashboard'); ?></li>
-			<li><?= anchor("dashboard/manageclient",'Manage Clients',['id'=>'active']); ?></li>
+			<!-- <li role="presentation" class="divider"></li> -->
+			<li><?= anchor("dashboard",'Dashboard',['id'=>'active']); ?></li>
+			<li><?= anchor("products",'Manage Products'); ?></li>
+			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
+			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
+			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
+
 
 		</ul>
 	</div><!--/.sidebar-->
@@ -14,8 +46,8 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Manage Clients</li>
+
+				<li id="new-li" class="active">Manage Clients</li>
 			</ol>
 		</div><!--/.row-->
 <br />
