@@ -99,6 +99,7 @@
 								  <th>Added On</th>
 								  <th>Added By</th>
 								  <th>Service Id</th>
+								  <th>Service Status</th>
 								  <th>Service / Domain Name</th>
 						        <th>Client Name</th>
 						        <th>Reg. Date</th>
@@ -123,6 +124,7 @@
 											<?= $k->service_id ?>
 										</div>
 									</td>
+									<td><?= $k->service_status ?></td>
 									<td><?= $k->service_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>

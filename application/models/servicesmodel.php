@@ -44,6 +44,7 @@ class Servicesmodel extends CI_Model {
 							->select('added_by')
 							->select('service_id')
 							->select('service_name')
+							->select('service_status')
 							->select('client_id')
 							->select('client_name')
 							->select('p_date')

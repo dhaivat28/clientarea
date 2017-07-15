@@ -36,7 +36,7 @@
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
 			<li><?= anchor("products",'Manage Products'); ?></li>
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
-			<li><?= anchor("services/manage_services",'Manage Services',['id'=>'active']); ?></li>
+			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
 			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
 
 
@@ -53,29 +53,145 @@
 
 		<div class="row">
 
-		</div>
-		<div class="row">
 			<div class="col-lg-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						View
+					By	Expiry
 					</div>
 					<div class="panel-body">
-						<ul class="list-group">
-							<a href="#" class="list-group-item">Active<span class="badge">14</span></a>
-							<a href="#" class="list-group-item">Expired<span class="badge">14</span></a>
-							<a href="#" class="list-group-item">Canceled<span class="badge">14</span></a>
-							<a href="#" class="list-group-item">Expiring within 90 Days<span class="badge">14</span></a>
-							<a href="#" class="list-group-item">Expiring within 180 Days<span class="badge">14</span></a>
-							<a href="#" class="list-group-item">							Expiring in 180+ Days
-							<span class="badge">14</span></a>
 
+						<?php echo form_open('filter/expiry'); ?>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+										<select name="years">
+										<option value="+1 years">Active</option>
+										<option value="+2 years">Expired</option>
+										<option value="+3 years">Canceled</option>
+										<option value="+4 years">Expiring within 90 Days</option>
+										<option value="+5 years">Expiring within 180 Days</option>
+										<option value="+5 years">Expiring in 180 plus Days</option>
 
-						</ul>
+										</select>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-error-custom">
+											<?php echo form_error('cname'); ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+							<?php echo form_close(); ?>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-9">
+
+			<div class="col-lg-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						By Product
+					</div>
+					<div class="panel-body">
+
+						<?php echo form_open('filter/expiry'); ?>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+										<select name="product_id" >
+											<?php
+											foreach($p_dropdown as $dlist)
+											{
+											?>
+											<option value="<?=$dlist['product_id']?>"><?=$dlist['product_name']?></option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-error-custom">
+											<?php echo form_error('cname'); ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+							<?php echo form_close(); ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						By Client
+					</div>
+					<div class="panel-body">
+
+						<?php echo form_open('filter/expiry'); ?>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+
+											<select name="client_id" >
+												<?php	foreach($dropdown_list as $dlist) { ?>
+												<option value="<?=$dlist['client_id']?>"><?=$dlist['cname']?></option>
+												<?php	 } ?>
+											</select>
+
+
+									</div>
+									<div class="col-lg-6">
+										<div class="form-error-custom">
+											<?php echo form_error('client_id'); ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+							<?php echo form_close(); ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						Added By
+					</div>
+					<div class="panel-body">
+
+						<?php echo form_open('filter/expiry'); ?>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-lg-6">
+										<select name="years">
+										<option value="+1 years">Active</option>
+										<option value="+2 years">Expired</option>
+										<option value="+3 years">Canceled</option>
+										<option value="+4 years">Expiring within 90 Days</option>
+										<option value="+5 years">Expiring within 180 Days</option>
+										<option value="+5 years">Expiring in 180 plus Days</option>
+
+										</select>
+									</div>
+									<div class="col-lg-6">
+										<div class="form-error-custom">
+											<?php echo form_error('cname'); ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+							<?php echo form_close(); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
@@ -90,17 +206,14 @@
 						<table class="domain-table">
 						    <thead>
 						    <tr>
-						        <th>Sr No.</th>
-								  <th>Added On</th>
-								  <th>Added By</th>
-								  <th>Service Id</th>
-								  <th>Domain Name</th>
-						        <th>Client Name</th>
-						        <th>Domain Reg. Date</th>
-								  <th>Years</th>
-						        <th>Domain Exp. Date</th>
-							    <th>Products</th>
-
+								 <th>Service Id</th>
+								 <th>Service / Domain Name</th>
+								 <th>Service Status</th>
+								 <th>Client Name</th>
+								 <th>Reg. Date</th>
+								 <th>Years</th>
+								 <th>Exp. Date</th>
+								<th>Product</th>
 						    </tr>
 						    </thead>
 							 <tbody>
@@ -110,24 +223,22 @@
 					 			if( count($all_services)):
 						   	foreach ($all_services as $k): ?>
 								<tr>
-									<td> <?= ++$count ?></td>
-									<td><?= date("d - M - Y h:ia",  strtotime($k->added_on));?></td>
-									<td><?= $k->added_by ?></td>
+
 									<td>
 										<div class="blue-service">
 											<?= $k->service_id ?>
 										</div>
 									</td>
 									<td><?= $k->service_name ?></td>
+									<td><?= $k->service_status ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-										<td><?= $k->product_id ?></td>
+										<td><?= $k->product_name ?></td>
 
-
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
-									</td>
+									<!-- <td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
+									</td> -->
 
 											</tr>
 						   <?php endforeach; ?>

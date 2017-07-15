@@ -52,7 +52,8 @@ class Services extends CI_Controller {
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
-			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name);
+			$service_status = "Active";
+			$final_array= array('service_status'=>$service_status,'client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name);
 			$data = array_merge($data, $final_array);
 			// main service execution
 			$done = $this->sm->add_service($data);
