@@ -52,34 +52,38 @@
 		</div><!--/.row-->
 
 		<div class="row">
+
+		</div>
+		<div class="row">
 			<div class="col-lg-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-						Filter
+						View
 					</div>
 					<div class="panel-body">
-						<h5>Services Expiring in</h5>
-						<div class="btn-group-vertical" role="group" aria-label="Vertical button group"> <button type="button" class="btn btn-default">Button</button> <button type="button" class="btn btn-default">Button</button> <div class="btn-group" role="group"> <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop1"> <li><a href="#">Dropdown link</a></li> <li><a href="#">Dropdown link</a></li> </ul> </div> <button type="button" class="btn btn-default">Button</button> <button type="button" class="btn btn-default">Button</button> <div class="btn-group" role="group"> <button id="btnGroupVerticalDrop2" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop2"> <li><a href="#">Dropdown link</a></li> <li><a href="#">Dropdown link</a></li> </ul> </div> <div class="btn-group" role="group"> <button id="btnGroupVerticalDrop3" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop3"> <li><a href="#">Dropdown link</a></li> <li><a href="#">Dropdown link</a></li> </ul> </div> <div class="btn-group" role="group"> <button id="btnGroupVerticalDrop4" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Dropdown <span class="caret"></span> </button> <ul class="dropdown-menu" aria-labelledby="btnGroupVerticalDrop4"> <li><a href="#">Dropdown link</a></li> <li><a href="#">Dropdown link</a></li> </ul> </div> </div>
+						<ul class="list-group">
+							<a href="#" class="list-group-item">Active<span class="badge">14</span></a>
+							<a href="#" class="list-group-item">Expired<span class="badge">14</span></a>
+							<a href="#" class="list-group-item">Canceled<span class="badge">14</span></a>
+							<a href="#" class="list-group-item">Expiring within 90 Days<span class="badge">14</span></a>
+							<a href="#" class="list-group-item">Expiring within 180 Days<span class="badge">14</span></a>
+							<a href="#" class="list-group-item">							Expiring in 180+ Days
+							<span class="badge">14</span></a>
+
+
+						</ul>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-9">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-11">
+							<div class="col-lg-12">
 								Manage Services
 							</div>
 
-							<div class="col-lg-1">
-								<div class="button-box">
-											<?=anchor("filters/filter_service",'Filters',['class'=>'btn 	btn-primary']); ?>
-								</div>
 							</div>
-
-						</div>
 
 					</div>
 					<div class="panel-body">
@@ -122,7 +126,7 @@
 										<td><?= $k->product_id ?></td>
 
 
-									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
+									<td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
 									</td>
 
 											</tr>

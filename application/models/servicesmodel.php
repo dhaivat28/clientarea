@@ -21,6 +21,16 @@ class Servicesmodel extends CI_Model {
 		return $query->row()->cname;
 	}
 
+	public function get_p_name($p_id)
+	{
+		$query= $this->db
+							->select('product_name')
+							->from('products')
+							->where('product_id',$p_id)
+							->get();
+		return $query->row()->product_name;
+	}
+
 	public function add_service($data)
 	{
 		return $status = $this->db->insert('services',$data);
@@ -38,6 +48,7 @@ class Servicesmodel extends CI_Model {
 							->select('client_name')
 							->select('p_date')
 							->select('product_id')
+							->select('product_name')
 							->select('years')
 							->select('expiry_date')
 							->from('services')

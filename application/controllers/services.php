@@ -45,20 +45,19 @@ class Services extends CI_Controller {
 
 			$r_id = mt_rand() * time();
 			$service_id = substr($r_id, 0, 9);
-
+			$p_id = $this->input->post('product_id');
+			$product_name= $this->sm->get_p_name($p_id);
 			$length = $this->input->post('years');
 			$expiry_date = date('Y-m-d', strtotime($length, strtotime($p_date)));
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
-			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id);
+			$final_array= array('client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name);
 			$data = array_merge($data, $final_array);
 			// main service execution
 			$done = $this->sm->add_service($data);
 
-
 			// billing module
-			$p_id = $this->input->post('product_id');
 			$this->load->model('paymentsmodel','pyml');
 			$service_charges = $this->pyml->calculate_charges($p_id);
 			$l = substr($length, 1, 2);

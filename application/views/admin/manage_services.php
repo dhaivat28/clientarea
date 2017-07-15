@@ -99,12 +99,12 @@
 								  <th>Added On</th>
 								  <th>Added By</th>
 								  <th>Service Id</th>
-								  <th>Domain Name</th>
+								  <th>Service / Domain Name</th>
 						        <th>Client Name</th>
-						        <th>Domain Reg. Date</th>
+						        <th>Reg. Date</th>
 								  <th>Years</th>
-						        <th>Domain Exp. Date</th>
-							    <th>Products</th>
+						        <th>Exp. Date</th>
+							    <th>Product</th>
 
 						    </tr>
 						    </thead>
@@ -128,7 +128,7 @@
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-										<td><?= $k->product_id ?></td>
+										<td><?= $k->product_name?></td>
 
 
 									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
