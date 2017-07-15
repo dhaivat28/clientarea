@@ -8,8 +8,6 @@ class Adminlogin extends CI_Controller {
 		{return redirect('dashboard');}
 		$this->load->helper('form');
 		$this->load->view('public/admin_login');
-
-
 	}
 
 	public function admin_login_process()
@@ -39,6 +37,7 @@ class Adminlogin extends CI_Controller {
 		return redirect('adminlogin');
 		$this->session->sess_destroy();
 	}
+
 
 
 }

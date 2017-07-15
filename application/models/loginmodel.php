@@ -15,6 +15,17 @@ class Loginmodel extends CI_Model {
 		}
 	}
 
+	public function admin_dropdown()
+	{
+		$query= $this->db
+							->select('admin_id')
+							->select('admin_name')
+							->from('admin')
+							->get();
+		return $query->result_array();
+	}
+
+
 }
 
 ?>

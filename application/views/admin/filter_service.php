@@ -111,7 +111,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="form-error-custom">
-											<?php echo form_error('cname'); ?>
+											<?php echo form_error('product_id'); ?>
 										</div>
 									</div>
 								</div>
@@ -166,14 +166,15 @@
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
-										<select name="years">
-										<option value="+1 years">Active</option>
-										<option value="+2 years">Expired</option>
-										<option value="+3 years">Canceled</option>
-										<option value="+4 years">Expiring within 90 Days</option>
-										<option value="+5 years">Expiring within 180 Days</option>
-										<option value="+5 years">Expiring in 180 plus Days</option>
-
+										<select name="product_id" >
+											<?php
+											foreach($admin_dropdown as $dlist)
+											{
+											?>
+											<option value="<?=$dlist['admin_id']?>"><?=$dlist['admin_name']?></option>
+											<?php
+											}
+											?>
 										</select>
 									</div>
 									<div class="col-lg-6">
