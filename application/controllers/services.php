@@ -32,17 +32,14 @@ class Services extends CI_Controller {
 
 		if($this->form_validation->run('add_service')){
 			$this->load->model('servicesmodel','sm');
-
 			$admin_id = $this->input->post('admin_id');
 			$admin_name = $this->sm->get_admin_name($admin_id);
-
 			$data = $this->input->post();
 			$payment_data = $this->input->post();
 			unset($data['submit']);
 			$c_id = $this->input->post('client_id');
 			$client_name= $this->sm->get_c_name($c_id);
 			$p_date = $this->input->post('p_date');
-
 			$r_id = mt_rand() * time();
 			$service_id = substr($r_id, 0, 9);
 			$p_id = $this->input->post('product_id');
@@ -57,22 +54,17 @@ class Services extends CI_Controller {
 			$data = array_merge($data, $final_array);
 			// main service execution
 			$done = $this->sm->add_service($data);
-
 			// billing module
 			$this->load->model('paymentsmodel','pyml');
 			$service_charges = $this->pyml->calculate_charges($p_id);
 			$l = substr($length, 1, 2);
 			$service_charges = $l * $service_charges;
-
-
-
 			// payment
 			$this->load->model('paymentsmodel','pyml');
 			$d = $this->input->post('service_name');
 			$service_details = $client_name." | ".$length." | ".$d;
 			$p_status = "no payments yet";
-			$payment_array= array('service_id' =>$service_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges,'service_details'=>$service_details);
-
+			$payment_array= array('admin_id'=>$admin_id,'added_by'=>$admin_name,'service_id' =>$service_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges,'service_details'=>$service_details);
 				if($done)
 				{
 					// payment execution
@@ -106,10 +98,6 @@ class Services extends CI_Controller {
 		parent::__construct();
 		if(!$this->session->userdata('admin_id'))
 		{return redirect('adminlogin');}
-
 	}
-
-
 }
-
 ?>

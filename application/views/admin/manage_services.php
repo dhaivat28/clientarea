@@ -124,14 +124,30 @@
 											<?= $k->service_id ?>
 										</div>
 									</td>
-									<td><?= $k->service_status ?></td>
+
+
+									<?php
+										$s = $k->service_status;
+										if($s=="Active")
+										{ $c = "green-py"; }
+										elseif ($s=="Cancelled")
+										{ $c = "gold-py"; }
+										else
+										{ $c = "red-py"; }
+									?>
+
+								<td>
+									<div class="<?= $c ?>">
+										<?php echo $s ?>
+									</div>
+								</td>
+
 									<td><?= $k->service_name ?></td>
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-										<td><?= $k->product_name?></td>
-
+									<td><?= $k->product_name?></td>
 
 									<td>		<?=anchor("services/delete_service/{$k->service_id}",'Delete',['class'=>'btn btn-danger']); ?>
 									</td>

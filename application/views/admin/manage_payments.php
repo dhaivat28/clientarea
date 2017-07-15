@@ -84,7 +84,6 @@
 	</div>
 </div>
 
-<br />
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -102,11 +101,10 @@
 						    <thead>
 						    <tr>
 
+								  <th>Sr. no</th>
 								  <th>Added By</th>
 								  <th>Service Id</th>
 								  <th>Service Details</th>
-								  <th>Transaction Id</th>
-						        <th>Transaction Date</th>
 								  <th>Service Charges</th>
 						        <th>Amount Paid</th>
 								  <th>Payment Status</th>
@@ -118,19 +116,19 @@
 							 <tbody>
 
 								 <?php
+
 				   	 		$count = 0;
 					 			if( count($all_payments)):
 						   	foreach ($all_payments as $k): ?>
 								<tr>
-									<td><?= $k->added_by ?></td>
+									<td><?= ++$count; ?></td>
+									<td><?=$k->added_by ?></td>
 									<td>
 										<div class="blue-service">
 											<?= $k->service_id ?>
 										</div>
 									</td>
 									<td><?= $k->service_details ?></td>
-									<td><?= $k->tr_id ?></td>
-									<td><?= $k->tr_date ?></td>
 									<td><?= $k->service_charges ?></td>
 									<td><?= $k->amount_paid ?></td>
 										<?php
