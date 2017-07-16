@@ -50,7 +50,14 @@ class Services extends CI_Controller {
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
 			$service_status = "Active";
-			$final_array= array('service_status'=>$service_status,'client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name);
+			//-----------------------------------------------//
+			$today = strtotime($n);
+			$ex_d = strtotime($expiry_date);
+			$timeDiff = abs($ex_d - $today);
+			$days_left = $timeDiff/86400;
+			$days_left = intval($days_left);
+			//-----------------------------------------------//
+			$final_array= array('service_status'=>$service_status,'client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name,'days_left'=>$days_left);
 			$data = array_merge($data, $final_array);
 			// main service execution
 			$done = $this->sm->add_service($data);
@@ -72,7 +79,12 @@ class Services extends CI_Controller {
 				}
 			}
 			else {
-				return redirect('services/add_service');
+				$this->load->model('servicesmodel','sm');
+				$this->load->model('productsmodel','prs');
+				$dropdown_list = $this->sm->dropdown_list();
+				$p_dropdown = $this->prs->p_dropdown();
+				$this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list,'p_dropdown'=>$p_dropdown]);
+				
 			}
 	}
 

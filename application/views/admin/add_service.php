@@ -104,7 +104,7 @@
 
 										<div class="col-lg-6">
 											<div class="form-error-custom">
-												<?php echo form_error('domain_name'); ?>
+												<?php echo form_error('service_name'); ?>
 											</div>
 										</div>
 									</div>
