@@ -94,16 +94,16 @@
 					</div>
 					<div class="panel-body">
 
-						<?php echo form_open('filter/expiry'); ?>
+						<?php echo form_open('filters/filter_by_product'); ?>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
 										<select name="product_id" >
 											<?php
-											foreach($p_dropdown as $dlist)
+											foreach($product_dropdown as $p_d)
 											{
 											?>
-											<option value="<?=$dlist['product_id']?>"><?=$dlist['product_name']?></option>
+											<option value="<?=$p_d['product_id']?>"><?=$p_d['product_name']?></option>
 											<?php
 											}
 											?>
@@ -135,8 +135,8 @@
 									<div class="col-lg-6">
 
 											<select name="client_id" >
-												<?php	foreach($dropdown_list as $dlist) { ?>
-												<option value="<?=$dlist['client_id']?>"><?=$dlist['cname']?></option>
+												<?php	foreach($client_dropdown as $c_d) { ?>
+												<option value="<?=$c_d['client_id']?>"><?=$c_d['cname']?></option>
 												<?php	 } ?>
 											</select>
 
@@ -221,8 +221,8 @@
 
 								 <?php
 				   	 		$count = 0;
-					 			if( count($all_services)):
-						   	foreach ($all_services as $k): ?>
+					 			if( count($filtered_data)):
+						   	foreach ($filtered_data as $k): ?>
 								<tr>
 
 									<td>
@@ -231,7 +231,22 @@
 										</div>
 									</td>
 									<td><?= $k->service_name ?></td>
-									<td><?= $k->service_status ?></td>
+									<?php
+										$s = $k->service_status;
+										if($s=="Active")
+										{ $c = "green-py"; }
+										elseif ($s=="Cancelled")
+										{ $c = "gold-py"; }
+										else
+										{ $c = "red-py"; }
+									?>
+
+								<td>
+									<div class="<?= $c ?>">
+										<?php echo $s ?>
+									</div>
+								</td>
+
 									<td><?= $k->client_name ?></td>
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>

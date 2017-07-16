@@ -79,7 +79,7 @@
 
 							<div class="col-lg-1">
 								<div class="button-box">
-											<?=anchor("filters/filter_service",'Filters',['class'=>'btn 	btn-primary']); ?>
+											<?=anchor("filters",'Filters',['class'=>'btn 	btn-primary']); ?>
 								</div>
 							</div>
 
@@ -124,8 +124,6 @@
 											<?= $k->service_id ?>
 										</div>
 									</td>
-
-
 									<?php
 										$s = $k->service_status;
 										if($s=="Active")
