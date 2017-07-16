@@ -46,7 +46,21 @@ class Filters extends CI_Controller {
 		$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
 	}
 
-
+	public function filter_by_status() {
+		$status = $this->input->post('status');
+		if($status == "1" || $status == "2" || $status == "3")
+		{
+			echo $status;
+		} else {
+			$filtered_data = $this->fm->filter_by_status($status);
+			// Start dropdown package
+			$client_dropdown = $this->cm->client_dropdown();
+			$product_dropdown = $this->pm->p_dropdown();
+			$admin_dropdown = $this->lm->admin_dropdown();
+			// End dropdown package
+			$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
+				}
+	}
 
 	public function __construct()
 	{

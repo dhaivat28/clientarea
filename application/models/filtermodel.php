@@ -35,6 +35,17 @@ class Filtermodel extends CI_Model {
 		return $query->result();
 	}
 
+	public function filter_by_status($status) {
+
+		$query= $this->db
+							->select('*')
+							->from('services')
+							->where('service_status',$status)
+							->order_by("op_id", "desc")
+							->get();
+		return $query->result();
+	}
+
 }
 
 ?>
