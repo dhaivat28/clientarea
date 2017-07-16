@@ -7,6 +7,15 @@ class Clientmodel extends CI_Model {
 		return $status = $this->db->insert('clients',$data);
 	}
 
+	public function client_dropdown() {
+		$query= $this->db
+							->select('client_id')
+							->select('cname')
+							->from('clients')
+							->get();
+		return $query->result_array();
+	}
+
 	public function client_list()
 	{
 		$query= $this->db

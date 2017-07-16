@@ -56,11 +56,11 @@
 			<div class="col-lg-3">
 				<div class="panel panel-info">
 					<div class="panel-heading">
-					By	Expiry
+					By	Status
 					</div>
 					<div class="panel-body">
 
-						<?php echo form_open('filter/expiry'); ?>
+						<?php echo form_open('filters/filter_by_status'); ?>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
@@ -129,7 +129,7 @@
 					</div>
 					<div class="panel-body">
 
-						<?php echo form_open('filter/expiry'); ?>
+						<?php echo form_open('filters/filter_by_client'); ?>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
@@ -162,16 +162,16 @@
 					</div>
 					<div class="panel-body">
 
-						<?php echo form_open('filter/expiry'); ?>
+						<?php echo form_open('filters/filter_by_admin'); ?>
 							<div class="form-group">
 								<div class="row">
 									<div class="col-lg-6">
-										<select name="product_id" >
+										<select name="admin_id" >
 											<?php
-											foreach($admin_dropdown as $dlist)
+											foreach($admin_dropdown as $a_d)
 											{
 											?>
-											<option value="<?=$dlist['admin_id']?>"><?=$dlist['admin_name']?></option>
+											<option value="<?=$a_d['admin_id']?>"><?=$a_d['admin_name']?></option>
 											<?php
 											}
 											?>
@@ -179,7 +179,7 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="form-error-custom">
-											<?php echo form_error('cname'); ?>
+											<?php echo form_error('admin_id'); ?>
 										</div>
 									</div>
 								</div>

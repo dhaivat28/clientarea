@@ -5,9 +5,13 @@ class Adminlogin extends CI_Controller {
 	public function index()
 	{
 		if($this->session->userdata('admin_id'))
-		{return redirect('dashboard');}
-		$this->load->helper('form');
-		$this->load->view('public/admin_login');
+		{
+			return redirect('dashboard');
+		}
+		else {
+			$this->load->helper('form');
+			$this->load->view('public/admin_login');	
+		}
 	}
 
 	public function admin_login_process()

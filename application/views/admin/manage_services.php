@@ -50,7 +50,7 @@
 				<li id="new-li" class="active" id="new-li">Manage Services</li>
 			</ol>
 		</div><!--/.row-->
-<br />
+
 <div class="row">
 	<div class="col-lg-12">
 		<?php if($feedback = $this->session->flashdata('feedback')):
@@ -67,7 +67,7 @@
 			<?php endif; ?>
 	</div>
 </div>
-<br />
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
