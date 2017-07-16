@@ -78,7 +78,13 @@ class Services extends CI_Controller {
 
 	public function delete_service($service_id) {
 			$this->load->model('servicesmodel','dm');
-			$this->_flashandredirect($this->dm->delete_service($service_id),"Deleted","Delete");
+			$this->load->model('paymentsmodel','pm');
+
+			$delete_payment = $this->pm->delete_payment($service_id);
+			if($delete_payment) {
+				$this->_flashandredirect($this->dm->delete_service($service_id),"Deleted","Delete");
+			}
+
 	}
 
 	private function _flashandredirect($success,$success_msg,$failure_msg)

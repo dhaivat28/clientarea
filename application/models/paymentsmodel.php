@@ -80,5 +80,10 @@ class Paymentsmodel extends CI_Model {
 		return $query->result();
 	}
 
+	public function delete_payment($service_id) {
+		$query = $this->db->delete('payments',['service_id'=>$service_id]);
+		return $query;
+	}
+
 }
 ?>
