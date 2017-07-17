@@ -62,8 +62,7 @@ class Filters extends CI_Controller {
 		elseif ($status == "180plus")
 		{
 			$lower_range = 180;
-			$upper_range = 365;
-			$filtered_data = $this->fm->filter_by_status_limits($lower_range,$upper_range);
+			$filtered_data = $this->fm->filter_by_status_limits($lower_range);
 			$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
 		}
 

@@ -57,13 +57,12 @@ class Filtermodel extends CI_Model {
 		return $query->result();
 	}
 
-	public function filter_by_status_limits($lower_range,$upper_range) {
+	public function filter_by_status_limits($lower_range) {
 
 		$query= $this->db
 							->select('*')
 							->from('services')
-							->where('days_left >=',$lower_range)
-							->where('days_left <=',$upper_range)
+							->where('days_left >',$lower_range)
 							->order_by("days_left", "AESC")
 							->get();
 		return $query->result();

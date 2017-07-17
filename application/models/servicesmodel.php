@@ -38,20 +38,9 @@ class Servicesmodel extends CI_Model {
 
 	public function all_services()
 	{
-		$a_id = $this->session->userdata('admin_id');
+
 		$query= $this->db
-							->select('added_on')
-							->select('added_by')
-							->select('service_id')
-							->select('service_name')
-							->select('service_status')
-							->select('client_id')
-							->select('client_name')
-							->select('p_date')
-							->select('product_id')
-							->select('product_name')
-							->select('years')
-							->select('expiry_date')
+							->select('*')
 							->from('services')
 							->order_by("op_id", "desc")
 							->get();
