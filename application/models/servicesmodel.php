@@ -51,6 +51,13 @@ class Servicesmodel extends CI_Model {
 		return $status = $this->db->insert('sales',$sale);
 	}
 
+	public function update_sales($update_sale_array,$service_id)
+	{
+		return $this->db
+					->where('service_id',$service_id)
+					->update('sales',$update_sale_array);
+	}
+
 	public function all_services()
 	{
 

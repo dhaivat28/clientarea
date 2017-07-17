@@ -48,7 +48,6 @@ class Payments extends CI_Controller {
 			$admin_name = $this->sm->get_admin_name($admin_id);
 			$now = new DateTime();
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
-
 			$tr_date = $now->format('Y-m-d H:i:s');
 			$tr_id = mt_rand()*time();
 			$amount_pay = $this->input->post('amount_pay');
@@ -63,6 +62,11 @@ class Payments extends CI_Controller {
 				if($final==0)
 				{
 					$p_status = "done";
+
+					$this->load->model('servicesmodel','sm');
+					$update_sale_array = array('received_date' => $tr_date, 'received'=>"TRUE");
+					$sale_update_exec = $this->sm->update_sales($update_sale_array,$service_id);
+
 				} else {
 					$p_status = "partial";
 				}
