@@ -50,13 +50,27 @@ class Services extends CI_Controller {
 			$now->setTimezone(new DateTimezone('Asia/Kolkata'));
 		 	$n = $now->format('Y-m-d H:i:s');
 			$service_status = "Active";
-			//-----------------------------------------------//
+
 			$today = strtotime($n);
 			$ex_d = strtotime($expiry_date);
-			$timeDiff = abs($ex_d - $today);
-			$days_left = $timeDiff/86400;
-			$days_left = intval($days_left);
-			//-----------------------------------------------//
+
+			if($today >= $ex_d)
+			{
+				$this->session->set_flashdata('expired','You Cannot add an already expired service');
+				$this->session->set_flashdata('expired_service','alert-danger');
+				return redirect('services/manage_services');
+				
+			}
+			else {
+				//-----------------------------------------------//
+					$today = strtotime($n);
+					$ex_d = strtotime($expiry_date);
+					$timeDiff = abs($ex_d - $today);
+					$days_left = $timeDiff/86400;
+					$days_left = intval($days_left);
+				//-----------------------------------------------//
+			}
+
 			$final_array= array('service_status'=>$service_status,'client_name' => $client_name,'expiry_date' => $expiry_date,'added_on' => $n,'added_by'=>$admin_name,'service_id'=>$service_id,'product_name'=>$product_name,'days_left'=>$days_left);
 			$data = array_merge($data, $final_array);
 			// main service execution
@@ -84,9 +98,9 @@ class Services extends CI_Controller {
 				$dropdown_list = $this->sm->dropdown_list();
 				$p_dropdown = $this->prs->p_dropdown();
 				$this->load->view('admin/add_service',['dropdown_list'=>$dropdown_list,'p_dropdown'=>$p_dropdown]);
-				
 			}
-	}
+
+	}	//end of main function
 
 	public function delete_service($service_id) {
 			$this->load->model('servicesmodel','dm');
@@ -110,6 +124,7 @@ class Services extends CI_Controller {
 	}
 		return redirect('services/manage_services');
 	}
+
 
 	public function __construct()
 	{

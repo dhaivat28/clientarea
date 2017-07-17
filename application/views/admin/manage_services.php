@@ -68,6 +68,23 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-lg-12">
+		<?php if($expired = $this->session->flashdata('expired')):
+			$expired_service = $this->session->flashdata('expired_service'); ?>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="alert alert-dismissible <?= $expired_service ?>">
+					  <button type="button" class="close" data-dismiss="alert">&times;</button>
+					  <strong><?= $expired ?></strong>
+					</div>
+				</div>
+			</div>
+			<?php endif; ?>
+	</div>
+</div>
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
