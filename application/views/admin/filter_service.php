@@ -68,9 +68,9 @@
 										<option value="Active">Active</option>
 										<option value="Expired">Expired</option>
 										<option value="Cancelled">Cancelled</option>
-										<option value="1">Expiring within 90 Days</option>
-										<option value="2">Expiring within 180 Days</option>
-										<option value="3">Expiring in 180 plus Days</option>
+										<option value="90">Expiring within 90 Days</option>
+										<option value="180">Expiring within 180 Days</option>
+										<option value="180plus">Expiring in 180 plus Days</option>
 										</select>
 									</div>
 									<div class="col-lg-6">
@@ -214,6 +214,7 @@
 								 <th>Years</th>
 								 <th>Exp. Date</th>
 								<th>Product</th>
+								<th>Days Left</th>
 						    </tr>
 						    </thead>
 							 <tbody>
@@ -250,7 +251,8 @@
 									<td><?= date("d-m-Y", strtotime($k->p_date));?></td>
 									<td><?= $k->years ?></td>
 									<td><?= date("d-m-Y", strtotime($k->expiry_date));?></td>
-										<td><?= $k->product_name ?></td>
+									<td><?= $k->product_name ?></td>
+									<td><?= $k->days_left ?></td>
 
 									<!-- <td>		<?=anchor("services/delete_service/{$k->service_id}",'X',['class'=>'btn btn-danger']); ?>
 									</td> -->

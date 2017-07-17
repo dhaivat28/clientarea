@@ -48,16 +48,28 @@ class Filters extends CI_Controller {
 
 	public function filter_by_status() {
 		$status = $this->input->post('status');
-		if($status == "1" || $status == "2" || $status == "3")
+		// Start dropdown package
+		$client_dropdown = $this->cm->client_dropdown();
+		$product_dropdown = $this->pm->p_dropdown();
+		$admin_dropdown = $this->lm->admin_dropdown();
+		// End dropdown package
+
+		if($status == "90" || $status == "180")
 		{
-			echo $status;
-		} else {
+			$filtered_data = $this->fm->filter_by_status_days($status);
+			$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
+		}
+		elseif ($status == "180plus")
+		{
+			$lower_range = 180;
+			$upper_range = 365;
+			$filtered_data = $this->fm->filter_by_status_limits($lower_range,$upper_range);
+			$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
+		}
+
+		else
+		{
 			$filtered_data = $this->fm->filter_by_status($status);
-			// Start dropdown package
-			$client_dropdown = $this->cm->client_dropdown();
-			$product_dropdown = $this->pm->p_dropdown();
-			$admin_dropdown = $this->lm->admin_dropdown();
-			// End dropdown package
 			$this->load->view('admin/filter_service',['filtered_data'=>$filtered_data,'client_dropdown'=>$client_dropdown,'product_dropdown'=>$product_dropdown,'admin_dropdown'=>$admin_dropdown]);
 				}
 	}
