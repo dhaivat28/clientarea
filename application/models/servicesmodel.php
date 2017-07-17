@@ -31,9 +31,24 @@ class Servicesmodel extends CI_Model {
 		return $query->row()->product_name;
 	}
 
+	public function get_p_profit($p_id)
+	{
+		$query= $this->db
+							->select('profit')
+							->from('products')
+							->where('product_id',$p_id)
+							->get();
+		return $query->row()->profit;
+	}
+
 	public function add_service($data)
 	{
 		return $status = $this->db->insert('services',$data);
+	}
+
+	public function add_sales($sale)
+	{
+		return $status = $this->db->insert('sales',$sale);
 	}
 
 	public function all_services()

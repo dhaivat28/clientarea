@@ -59,7 +59,7 @@ class Services extends CI_Controller {
 				$this->session->set_flashdata('expired','You Cannot add an already expired service');
 				$this->session->set_flashdata('expired_service','alert-danger');
 				return redirect('services/manage_services');
-				
+
 			}
 			else {
 				//-----------------------------------------------//
@@ -80,12 +80,22 @@ class Services extends CI_Controller {
 			$service_charges = $this->pyml->calculate_charges($p_id);
 			$l = substr($length, 1, 2);
 			$service_charges = $l * $service_charges;
-			// payment
-			$this->load->model('paymentsmodel','pyml');
+
+			//common for sales and paymentsmodel
 			$d = $this->input->post('service_name');
 			$service_details = $client_name." | ".$length." | ".$d;
+
+			// Sales module
+			$product_profit= $this->sm->get_p_profit($p_id);
+			$product_profit = $l * $product_profit;
+			$sale = array('profit' => $product_profit, 'service_id'=>$service_id,'service_details'=>$service_details);
+			$sale_exec = $this->sm->add_sales($sale);
+
+			// payment
+			$this->load->model('paymentsmodel','pyml');
 			$p_status = "no payments yet";
 			$payment_array= array('admin_id'=>$admin_id,'added_by'=>$admin_name,'service_id' =>$service_id,'p_status' => $p_status,'service_charges'=>$service_charges,'amount_left'=>$service_charges,'service_details'=>$service_details);
+
 				if($done)
 				{
 					// payment execution

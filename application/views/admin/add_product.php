@@ -103,7 +103,7 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-lg-6">
-												<label>Profit:</label>
+												<label>Profit</label>
 												<?php echo form_input(['name'=>'profit','id'=>'inputEmail','class'=>'form-control','placeholder'=>'profit','value'=>set_value('profit')]); ?>
 										</div>
 										<div class="col-lg-6">
@@ -113,6 +113,7 @@
 										</div>
 									</div>
 								</div>
+
 
 								<div class="row">
 									<div class="col-lg-4">
