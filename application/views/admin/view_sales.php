@@ -36,8 +36,8 @@
 			<li><?= anchor("dashboard",'Dashboard'); ?></li>
 			<li><?= anchor("products",'Manage Products'); ?></li>
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
-			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
-			<li><?= anchor("payments/manage_payments",'Manage Payments',['id'=>'active']); ?></li>
+			<li><?= anchor("services/manage_services",'Manage Services',['id'=>'active']); ?></li>
+			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
 			<li><?= anchor("adminlogin/admin_logout",'Logout'); ?></li>
 
 		</ul>
@@ -46,9 +46,11 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li id="new-li" class="active">Manage Payments</li>
+
+				<li id="new-li" class="active" id="new-li">Manage Services</li>
 			</ol>
 		</div><!--/.row-->
+
 <div class="row">
 	<div class="col-lg-12">
 		<?php if($feedback = $this->session->flashdata('feedback')):
@@ -68,14 +70,14 @@
 
 <div class="row">
 	<div class="col-lg-12">
-		<?php if($feedback = $this->session->flashdata('incorrect_amount')):
-			$feedback_class = $this->session->flashdata('i_class'); ?>
+		<?php if($expired = $this->session->flashdata('expired')):
+			$expired_service = $this->session->flashdata('expired_service'); ?>
 
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="alert alert-dismissible <?= $feedback_class ?>">
+					<div class="alert alert-dismissible <?= $expired_service ?>">
 					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong><?= $feedback ?></strong>
+					  <strong><?= $expired ?></strong>
 					</div>
 				</div>
 			</div>
@@ -88,10 +90,21 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-3">
-							All	Payments
+							<div class="col-lg-9">
+								All Sales
 							</div>
 
+							<div class="col-lg-1">
+								<div class="button-box">
+											<?=anchor("filters",'Filters',['class'=>'btn 	btn-primary']); ?>
+								</div>
+							</div>
+
+							<div class="col-lg-2">
+								<div class="button-box">
+											<?=anchor("services/add_service",'Add Service',['class'=>'btn btn-success']); ?>
+								</div>
+							</div>
 						</div>
 
 					</div>
@@ -99,64 +112,34 @@
 						<table class="domain-table">
 						    <thead>
 						    <tr>
-
-								  <th>Sr. no</th>
-								  <th>Added By</th>
+						        <th>Sr No.</th>
 								  <th>Service Id</th>
 								  <th>Service Details</th>
-								  <th>Service Charges</th>
-						        <th>Amount Paid</th>
-								  <th>Payment Status</th>
-								  <th>Payment method</th>
-								  <th>Amount Left</th>
-
-						    </tr>
+								  <th>Earning</th>
+						        <th>Received On</th>
+						     </tr>
 						    </thead>
 							 <tbody>
 
 								 <?php
-
 				   	 		$count = 0;
-					 			if( count($all_payments)):
-						   	foreach ($all_payments as $k): ?>
+					 			if( count($all_sales)):
+						   	foreach ($all_sales as $k): ?>
 								<tr>
-									<td><?= ++$count; ?></td>
-									<td><?=$k->added_by ?></td>
+									<td> <?= ++$count ?></td>
 									<td>
 										<div class="blue-service">
 											<?= $k->service_id ?>
 										</div>
 									</td>
 									<td><?= $k->service_details ?></td>
-									<td><?= $k->service_charges ?></td>
-									<td><?= $k->amount_paid ?></td>
-										<?php
-											$s = $k->p_status;
-											if($s=="no payments yet")
-											{ $c = "red-py"; }
-											elseif ($s=="partial")
-											{ $c = "gold-py"; }
-											else
-											{ $c = "green-py"; }
-										?>
-
-									<td>
-										<div class="<?= $c ?>">
-											<?php echo $s ?>
-										</div>
-									</td>
-
-									<td><?= $k->p_method ?></td>
-									<td><?= $k->amount_left ?></td>
-									<td>		<?=anchor("payments/add_payment/{$k->service_id}",'Pay',['class'=>'btn btn-success	']); ?>
-									</td>
-									<td>		<?=anchor("payments/check_log/{$k->service_id}",'Log',['class'=>'btn btn-primary']); ?>
-									</td>
-								</tr>
+									<td><?= $k->profit ?></td>
+									<td><?= date("d - M - Y h:ia",  strtotime($k->received_date));?></td>
+									</tr>
 						   <?php endforeach; ?>
 				   	<?php else: ?>
 					   <tr>
-						   <td colspan="9">No Records Found</td>
+						   <td colspan="10">No Records Found</td>
 					   </tr>
 				   <?php endif; ?>
 

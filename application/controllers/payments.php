@@ -137,6 +137,8 @@ class Payments extends CI_Controller {
 		parent::__construct();
 		if(!$this->session->userdata('admin_id'))
 		{return redirect('adminlogin');}
+
+		$this->output->nocache();
 	}
 
 

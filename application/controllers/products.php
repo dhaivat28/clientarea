@@ -57,6 +57,7 @@ class Products extends CI_Controller {
 		if(!$this->session->userdata('admin_id'))
 		{return redirect('adminlogin');}
 
+		$this->output->nocache();
 	}
 
 

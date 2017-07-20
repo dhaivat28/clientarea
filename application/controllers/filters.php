@@ -79,7 +79,7 @@ class Filters extends CI_Controller {
 
 		if(!$this->session->userdata('admin_id'))
 		{return redirect('adminlogin');}
-
+			$this->output->nocache();
 		$this->load->helper('form');
 		$this->load->model('productsmodel','pm');
 		$this->load->model('loginmodel','lm');

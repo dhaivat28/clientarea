@@ -38,7 +38,7 @@
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
 			<li><?= anchor("services/manage_services",'Manage Services',['id'=>'active']); ?></li>
 			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
-
+			<li><?= anchor("adminlogin/admin_logout",'Logout'); ?></li>
 
 		</ul>
 	</div><!--/.sidebar-->

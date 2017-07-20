@@ -38,7 +38,7 @@
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
 			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
 			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
-
+			<li><?= anchor("adminlogin/admin_logout",'Logout'); ?></li>
 
 		</ul>
 	</div><!--/.sidebar-->
@@ -74,7 +74,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								All Products	
+								All Products
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
