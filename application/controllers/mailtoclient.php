@@ -7,6 +7,7 @@ class Mailtoclient extends CI_Controller {
 		$this->load->library('email');
 		$subject = 'Urgent! Domain About to Expire';
 		$message = '<p>This message has been sent for testing purposes.</p>';
+
 		$result = $this->email
      ->from('aspironwebmailer@gmail.com')
      ->reply_to('aspironweb@gmail.com')    // Optional, an account where a human being reads.
@@ -14,6 +15,8 @@ class Mailtoclient extends CI_Controller {
      ->subject($subject)
      ->message($message)
      ->send();
+
+		$this->load->view('admin/dashboard');
 	}
 }
 ?>
