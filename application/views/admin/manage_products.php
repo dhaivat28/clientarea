@@ -47,10 +47,10 @@
 		<div class="row">
 			<ol class="breadcrumb">
 
-				<li id="new-li" class="active">Manage Clients</li>
+				<li id="new-li" class="active">Manage Products</li>
 			</ol>
 		</div><!--/.row-->
-<br />
+
 <div class="row">
 	<div class="col-lg-12">
 		<?php if($feedback = $this->session->flashdata('feedback')):
@@ -67,14 +67,14 @@
 			<?php endif; ?>
 	</div>
 </div>
-<br />
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								Manage Clients
+								All Products	
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">

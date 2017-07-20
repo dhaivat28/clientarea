@@ -89,7 +89,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-3">
-								Payments
+							All	Payments
 							</div>
 
 						</div>

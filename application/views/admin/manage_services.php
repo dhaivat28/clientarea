@@ -91,7 +91,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-lg-9">
-								Manage Services
+								All Services
 							</div>
 
 							<div class="col-lg-1">

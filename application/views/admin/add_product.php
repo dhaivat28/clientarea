@@ -49,7 +49,7 @@
 				<li id="new-li" class="active">Add Client</li>
 			</ol>
 		</div><!--/.row-->
-<br />
+
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -60,7 +60,7 @@
 							</div>
 							<div class="col-lg-9">
 								<div class="button-box">
-									<?=anchor("products",'&larr; Back To Manage Client',['class'=>'btn btn-default']); ?>
+									<?=anchor("products",'&larr; Go Back',['class'=>'btn btn-default']); ?>
 								</div>
 							</div>
 						</div>
