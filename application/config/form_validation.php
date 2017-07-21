@@ -20,12 +20,26 @@ $config = [
 									[
 										'field'=>'start_date',
 										'label'=>'start_date',
-										'rules'=>'required|'
+										'rules'=>'required'
 									],
 
 									[
 										'field'=>'end_date',
 										'label'=>'end_date',
+										'rules'=>'required'
+									]
+								],
+
+		'filter_sale_month'	=> [
+									[
+										'field'=>'month',
+										'label'=>'month',
+										'rules'=>'required'
+									],
+
+									[
+										'field'=>'year',
+										'label'=>'year',
 										'rules'=>'required'
 									]
 								],

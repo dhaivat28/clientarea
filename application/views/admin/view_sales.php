@@ -88,6 +88,54 @@
 					</div>
 				</div>
 			</div>
+	<div class="col-md-5">
+				<div class="panel panel-info">
+					<div class="panel-heading">Filter by Date</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-4">
+							<?php echo form_open('sales/filter_by_month'); ?>
+								<label>Month</label><br />
+							   <select name="month">
+									<option value='1'>Janaury</option>
+									<option value='2'>February</option>
+									<option value='3'>March</option>
+									<option value='4'>April</option>
+									<option value='5'>May</option>
+									<option value='6'>June</option>
+									<option value='7'>July</option>
+									<option value='8'>August</option>
+									<option value='9'>September</option>
+									<option value='10'>October</option>
+									<option value='11'>November</option>
+									<option value='12'>December</option>
+								</select>
+							</div>
+							<div class="col-lg-4">
+								<label>Year</label>
+								<?php echo form_input(['name'=>'year','id'=>'inputEmail','class'=>'form-control','placeholder'=>'eg. 2017','value'=>set_value('year')]); ?>
+							</div>
+							<div class="col-lg-4">
+								<br />
+								<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+								<?php echo form_close(); ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="form-error-custom">
+									<?php echo form_error('month'); ?>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<div class="form-error-custom">
+									<?php echo form_error('year'); ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 </div>
 
 		<div class="row">
