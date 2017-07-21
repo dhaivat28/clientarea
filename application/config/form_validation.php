@@ -16,6 +16,20 @@ $config = [
 									]
 								],
 
+		'filter_sale_date'	=> [
+									[
+										'field'=>'start_date',
+										'label'=>'start_date',
+										'rules'=>'required|'
+									],
+
+									[
+										'field'=>'end_date',
+										'label'=>'end_date',
+										'rules'=>'required'
+									]
+								],
+
 		'add_payment'	=> [
 									[
 										'field'=>'amount_pay',

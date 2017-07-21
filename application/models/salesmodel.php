@@ -12,6 +12,18 @@ class Salesmodel extends CI_Model {
 		return $query->result();
 	}
 
+	public function filter_sales($start,$end) {
+
+		$query= $this->db
+							->select('*')
+							->from('sales')
+							->where('received_date >=',$start)
+							->where('received_date <=',$end)
+							->order_by("op_id", "AESC")
+							->get();
+		return $query->result();
+	}
+
 
 
 }

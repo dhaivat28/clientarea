@@ -52,37 +52,42 @@
 		</div><!--/.row-->
 
 <div class="row">
-	<div class="col-lg-12">
-		<?php if($feedback = $this->session->flashdata('feedback')):
-			$feedback_class = $this->session->flashdata('feedback_class'); ?>
 
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="alert alert-dismissible <?= $feedback_class ?>">
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong><?= $feedback ?></strong>
+	<div class="col-md-7">
+				<div class="panel panel-info">
+					<div class="panel-heading">Filter by Date</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-5">
+								<?php echo form_open('sales/filter_by_sales'); ?>
+								<label>Start Date</label>
+									<?php echo form_input(['name'=>'start_date','type'=>'date','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Purchase Date','value'=>set_value('start_date')]); ?>
+							</div>
+							<div class="col-lg-5">
+								<label>End Date</label>
+									<?php echo form_input(['name'=>'end_date','type'=>'date','id'=>'inputEmail','class'=>'form-control','placeholder'=>'Purchase Date','value'=>set_value('end_date')]); ?>
+							</div>
+							<div class="col-lg-2">
+								<br />
+								<?php echo form_submit(['name'=>'submit','value'=>'Go','class'=>'btn btn-primary']); ?>
+								<?php echo form_close(); ?>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="form-error-custom">
+									<?php echo form_error('start_date'); ?>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<div class="form-error-custom">
+									<?php echo form_error('end_date'); ?>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<?php endif; ?>
-	</div>
-</div>
-
-<div class="row">
-	<div class="col-lg-12">
-		<?php if($expired = $this->session->flashdata('expired')):
-			$expired_service = $this->session->flashdata('expired_service'); ?>
-
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="alert alert-dismissible <?= $expired_service ?>">
-					  <button type="button" class="close" data-dismiss="alert">&times;</button>
-					  <strong><?= $expired ?></strong>
-					</div>
-				</div>
-			</div>
-			<?php endif; ?>
-	</div>
 </div>
 
 		<div class="row">
@@ -90,21 +95,16 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-lg-9">
+							<div class="col-lg-10">
 								All Sales
-							</div>
-
-							<div class="col-lg-1">
-								<div class="button-box">
-											<?=anchor("filters",'Filters',['class'=>'btn 	btn-primary']); ?>
-								</div>
 							</div>
 
 							<div class="col-lg-2">
 								<div class="button-box">
-											<?=anchor("services/add_service",'Add Service',['class'=>'btn btn-success']); ?>
+											<?=anchor("sales",'Remove filters',['class'=>'btn 	btn-primary']); ?>
 								</div>
 							</div>
+
 						</div>
 
 					</div>

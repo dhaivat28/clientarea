@@ -37,6 +37,7 @@
 			<li><?= anchor("client/manageclient",'Manage Clients'); ?></li>
 			<li><?= anchor("services/manage_services",'Manage Services'); ?></li>
 			<li><?= anchor("payments/manage_payments",'Manage Payments'); ?></li>
+			<li><?= anchor("sales",'View Sales'); ?></li>
 			<li><?= anchor("adminlogin/admin_logout",'Logout'); ?></li>
 
 
