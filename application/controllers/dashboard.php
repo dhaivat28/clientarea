@@ -12,14 +12,16 @@ class Dashboard extends CI_Controller {
 		$today = $now->format('Y-m-d H:i:s');
 		$today = strtotime($today);
 		$services = $this->dm->get_services();
+		
 		foreach ($services as $key) {
 			$expiry_date = strtotime($key->expiry_date);
 			$timeDiff = abs($expiry_date - $today);
 			$days_left = $timeDiff/86400;
-			$days_left = intval($days_left);
+			echo $days_left = intval($days_left);
 			$service_id = $key->service_id;
-		$execute = $this->dm->update_expiry($service_id,$days_left);
+			$execute = $this->dm->update_expiry($service_id,$days_left);
 		}
+
 		//---------------- CRON JOB for service expiry --------------//
 
 		$this->load->view('admin/dashboard');
