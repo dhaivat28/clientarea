@@ -4,19 +4,25 @@ class Mailtoclient extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->library('email');
-		$subject = 'Urgent! Domain About to Expire';
-		$message = '<p>This message has been sent for testing purposes.</p>';
-
-		$result = $this->email
-     ->from('aspironwebmailer@gmail.com')
-     ->reply_to('aspironweb@gmail.com')    // Optional, an account where a human being reads.
-     ->to('dhaivat28@gmail.com')
-     ->subject($subject)
-     ->message($message)
-     ->send();
-
-		$this->load->view('admin/dashboard');
+		$this->load->helper('form');
+		$this->load->view('admin/mail_custom');
 	}
+
+	public function mail_exec()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters("<p class='text-danger'>","</p>");
+		if($this->form_validation->run('mail_validate')){
+			$data = $this->input->post();
+			unset($data['submit']);
+			$this->load->model('mailmodel','mamodel');
+			$this->mamodel->shoot_mail($data);
+
+			}
+			 else {
+			$this->load->view('admin/mail_custom');
+		}
+	}
+
 }
 ?>

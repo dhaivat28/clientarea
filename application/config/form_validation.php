@@ -109,6 +109,26 @@ $config = [
 
 								],
 
+		'mail_validate'	=> [
+									[
+										'field'=>'email',
+										'label'=>'email',
+										'rules'=>'required|trim'
+									],
+									[
+										'field'=>'subject',
+										'label'=>'subject',
+										'rules'=>'required|trim'
+									],
+
+									[
+										'field'=>'message',
+										'label'=>'message',
+										'rules'=>'required|trim'
+									]
+
+								],
+
 		'add_client'	=> [
 									[
 										'field'=>'cname',
