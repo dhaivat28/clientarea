@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'remotemysql.com:3306';
-$db['default']['username'] = 'eVLOFZkm0k';
-$db['default']['password'] = '8Lgg8n5mKl';
-$db['default']['database'] = 'eVLOFZkm0k';
+$db['default']['hostname'] = 'us-cdbr-iron-east-05.cleardb.net';
+$db['default']['username'] = 'b02453763881ca';
+$db['default']['password'] = 'b8d881f1';
+$db['default']['database'] = 'heroku_e2ec69a2abadcb8';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
