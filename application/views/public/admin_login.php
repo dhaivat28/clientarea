@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Forms</title>
+<title>Welcome to Clientarea</title>
 
 <?= link_tag('assets/css/bootstrap.min.css'); ?>
 <?= link_tag('assets/css/datepicker3.css'); ?>
