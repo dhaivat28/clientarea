@@ -60,6 +60,9 @@
 
 						</fieldset>
 						<br />
+						Demo:<br>
+						email: admin@admin.com<br>
+						password: admin123
 					<?php echo form_close(); ?>
 				</div>
 			</div>
