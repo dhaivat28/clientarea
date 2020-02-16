@@ -12,6 +12,9 @@ class Adminlogin extends CI_Controller {
 			$this->load->helper('form');
 			$this->load->view('public/admin_login');
 		}
+		// load
+		$this->load->database();
+		print_r($this->db);
 	}
 
 	public function admin_login_process()
@@ -28,6 +31,10 @@ class Adminlogin extends CI_Controller {
 			$password = $this->input->post('password');
 			$this->load->model('loginmodel','lgmodel');
 			$admin_id = $this->lgmodel->validate_adminlogin($email,$password);
+
+			//prnt Admin id
+			echo $admin_id;
+
 			if($admin_id) {
 				$this->session->set_userdata('admin_id',$admin_id);
 				return redirect('dashboard');
