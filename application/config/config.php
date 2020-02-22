@@ -1,5 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
+// Fix for codeigniter v3 session mkdir error
 $config['sess_save_path'] = sys_get_temp_dir();
 
 /*
