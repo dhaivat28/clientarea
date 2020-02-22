@@ -23,8 +23,8 @@
 |
 */
 // $config['base_url'] = 'https://clientarea.herokuapp.com/';
-//$config['base_url'] = 'https://ci3-staging.herokuapp.com/';
- $config['base_url'] = 'http://localhost/clientarea/';
+$config['base_url'] = 'https://ci3-staging.herokuapp.com/';
+//$config['base_url'] = 'http://localhost/clientarea/';
 
 /*
 |--------------------------------------------------------------------------
